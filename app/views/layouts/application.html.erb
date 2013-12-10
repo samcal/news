@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class='container'>
+		<header><h1>M-A Bear News</h1></header>
+		<div class='row'>
+			<div class='col-md-2'>
+				<ul class='nav nav-pills nav-stacked'>
+					<li class='active'><a href='#'>Most Recent</a></li>
+					<li><a href='#'>News</a></li>
+					<li><a href='#'>Sports</a></li>
+					<li><a href='#'>Satire</a></li>
+					<li><a href='#'>Opinion</a></li>
+					<li><a href='#'>Features</a></li>
+					<li><a href='#'>Entertainment</a></li>
+					<li><a href='#'>Editorials</a></li>
+					<li><a href='#'>Photos</a></li>
+					<li><a href='#'>Blogs</a></li>
+					<li><a href='#'>Bearly News</a></li>
+				</ul>
+			</div>
+			<div class='col-md-8'>
+				<%= yield %>
+		</div>
+	</div>
 </body>
 </html>

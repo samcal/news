@@ -15,3 +15,53 @@
 @import "bootstrap";
 
 $splash: #911425;
+
+header {
+	h1 {
+		color: $splash;
+		font-family: 'Lato', sans-serif;
+		font-weight: 100;
+		text-align: center;
+	}
+}
+
+.nav {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	li > a {
+		color: $splash !important;
+	}
+	li.active > a {
+		color: white !important;
+		background-color: $splash !important;
+	}
+}
+
+.card {
+	border: 1px solid #BBB;
+	border-radius: 2px;
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 20px;
+	img {
+		max-width: 100%;
+	}
+	h1 {
+		font-family: 'Lato', sans-serif;
+		font-weight: 300;
+		font-size: 20px;
+		text-align: center;
+		margin: 0;
+		color: #aaa;
+	}
+	hr {
+		margin: 0;
+	}
+	.sub {
+		font-family: 'Lato', sans-serif;
+		font-weight: 300;
+		font-size: 12px;
+		color: #aaa;
+	}
+}
