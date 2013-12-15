@@ -9,6 +9,9 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.friendly.find(params[:id])
 		@current_category = @article.category
+		a_ids = @current_category.article_ids
+		a_ids.delete(@article.id)
+		@similar_articles = Article.where(:id => a_ids.sort_by { rand }.slice(0,3))
 		unless request.path == article_path(@article)
 			redirect_to @article, status: :moved_permanently
 		end
