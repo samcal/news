@@ -1,0 +1,11 @@
+<%= link_to article_path(article) do %>
+	<div class='col-md-4'>
+		<div class='card'>
+			<%= image_tag article.image.url(:thumb) %>
+			<h1><%= article.short_title %></h1>
+			<hr />
+			<span class='sub'><%= article.created_at.strftime("%m/%d/%Y") %></span>
+			<span class='sub pull-right'><%= article.author_name %></span>
+		</div>
+	</div>
+<% end %>

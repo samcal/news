@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :title, use: [:slugged, :history]
 
+	belongs_to :category
+
 	has_attached_file :image, :styles => {:thumb => "300x230>", :medium => "600x416>"}
 
 	def short_title
