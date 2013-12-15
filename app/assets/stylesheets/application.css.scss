@@ -16,6 +16,10 @@
 
 $splash: #911425;
 
+a.no-underline:hover {
+	text-decoration: none;
+}
+
 header {
 	a:hover {
 		text-decoration: none;

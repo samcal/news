@@ -1,4 +1,4 @@
-<%= link_to article_path(article) do %>
+<%= link_to article_path(article), class: "no-underline" do %>
 	<div class='col-md-4'>
 		<div class='card'>
 			<%= image_tag article.image.url(:thumb) %>
