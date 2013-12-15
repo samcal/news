@@ -1,6 +1,7 @@
 News::Application.routes.draw do
   root 'articles#index'
 
+  resources :comments
   resources :articles
   resources :categories
 

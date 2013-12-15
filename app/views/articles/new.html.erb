@@ -10,6 +10,11 @@
 	</p>
 
 	<p>
+		<%= f.label :category %><br />
+		<%= select_tag :category, options_for_select(@categories.map{|c|c.name}) %><br />
+	</p>
+
+	<p>
 		<%= f.label :image %><br />
 		<%= f.file_field :image %><br />
 	</p>

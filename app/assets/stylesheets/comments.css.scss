@@ -1,0 +1,49 @@
+div#article-comments {
+	margin-top: 10px;
+	h1 {
+		margin: 0;
+		color: #999;
+		font-family: 'Lato', sans-serif;
+	}
+	hr {
+		margin: 0;
+	}
+	div.new-comment {
+		margin-top: 10px;
+		padding: 5px;
+		border: 1px dashed #aaa;
+		border-radius: 5px;
+		form {
+			width: 98%;
+			margin: 0 auto;
+			div.top-section {
+				border-bottom: 1px dashed #aaa;
+				padding-bottom: 5px;
+			}
+			.narrow {
+				width: 200px;
+			}
+			textarea {
+				margin-top: 5px;
+			}
+		}
+	}
+	div.comment {
+		margin-top: 10px;
+		padding: 5px;
+		border: 1px solid #aaa;
+		border-radius: 5px;
+		div.inner {
+			width: 98%;
+			margin: 0 auto;
+			div.top-section {
+				border-bottom: 1px solid #aaa;
+				padding-bottom: 2px;
+				color: #999;
+			}
+			div.body {
+				min-height: 100px;
+			}
+		}
+	}
+}
