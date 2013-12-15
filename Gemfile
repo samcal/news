@@ -24,6 +24,12 @@ gem 'jquery-rails'
 # Use Twitter Bootstrap for default styling
 gem 'bootstrap-sass'
 
+# Frienly Id for nice-looking article URLs
+gem 'friendly_id'
+
+# Paperclip for attaching images
+gem "paperclip", "~> 3.0"
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

@@ -1,0 +1,14 @@
+<article>
+	<h1><%= @article.title %></h1>
+	<hr />
+	<% if @article.image.exists? %>
+		<%= image_tag @article.image.url(:medium) %>
+		<div class='divider'></div>
+	<% end %>
+	<%= @article.text.html_safe %>
+	<hr />
+	<div class='sub'>by <%= @article.author_name %> on <%= @article.created_at.strftime("%m/%d/%Y") %></div>
+</article>
+<br />
+<br />
+<br />

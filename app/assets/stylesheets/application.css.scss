@@ -17,6 +17,9 @@
 $splash: #911425;
 
 header {
+	a:hover {
+		text-decoration: none;
+	}
 	h1 {
 		color: $splash;
 		font-family: 'Lato', sans-serif;
