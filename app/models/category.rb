@@ -3,4 +3,8 @@ class Category < ActiveRecord::Base
 	friendly_id :name, use: :slugged
 
 	has_many :articles
+
+	def ordered_articles
+		articles.reverse
+	end
 end

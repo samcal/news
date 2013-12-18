@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 	belongs_to :category
 	has_many :comments
 
-	has_attached_file :image, :styles => {:thumb => "300x230>", :medium => "600x416>"}
+	has_attached_file :image, :styles => {:thumb => "300x230", :medium => "600x416"}
 
 	def short_title
 		if title.split.size <= 5
@@ -13,5 +13,11 @@ class Article < ActiveRecord::Base
 		else
 			return title.split[0..4].join(' ') + '...'
 		end
+	end
+
+	def similar_articles
+		a_ids = category.article_ids
+		a_ids.delete(id)
+		Article.where(:id => a_ids.sort_by { rand }.slice(0, 3))
 	end
 end
