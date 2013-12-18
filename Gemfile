@@ -30,6 +30,9 @@ gem 'friendly_id'
 # Paperclip for attaching images
 gem "paperclip", "~> 3.0"
 
+# Devise for authentication
+gem "devise"
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
