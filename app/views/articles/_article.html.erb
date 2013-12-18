@@ -1,6 +1,6 @@
 <%= link_to article_path(article), class: "no-underline" do %>
 	<div class='col-md-4'>
-		<div class='card'>
+		<div class='article-thumbnail card'>
 			<%= image_tag article.image.url(:thumb) %>
 			<h1><%= article.short_title %></h1>
 			<hr />

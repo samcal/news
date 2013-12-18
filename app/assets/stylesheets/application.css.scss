@@ -15,6 +15,7 @@
 @import "bootstrap";
 
 $splash: #911425;
+$lightgray: rgba(203,203,203,1);
 
 a.no-underline:hover {
 	text-decoration: none;
@@ -51,4 +52,10 @@ button.btn-ma, button.btn-ma:hover {
 	border: 1px solid $splash;
 	color: $splash;
 	background-color: white;
+}
+
+.card{
+	border: 1px solid $lightgray;
+  box-shadow: 0 4px 8px rgba(212,212,212,.6);
+	border-radius: 2px;
 }
