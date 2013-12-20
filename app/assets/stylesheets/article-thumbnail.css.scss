@@ -1,0 +1,35 @@
+.article-thumbnail {
+	border: 1px solid #BBB;
+	border-radius: 0px;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 18px;
+	img {
+		width: 100%;
+	}
+	h1 {
+		font-family: 'Lato', sans-serif;
+    font-weight: 100;
+		font-size: 18px;
+		text-align: center;
+		margin-top:7px;
+    margin-bottom:7px;
+    color: black;
+	}
+	hr {
+		margin: 0;
+	}
+	.sub {
+    text-align:center;
+    margin-top:7px;
+    margin-bottom:-3px;
+		font-family: 'Lato', sans-serif;
+		font-weight: 300;
+		font-size: 12px;
+		color: rgba(203,203,203,1);
+    // Commented out because this doesn't work when the grid gets small.
+    // Sub title too long fail safe
+    // height:17px; // doesn't let grid get screwed up but won't cut off text
+    // overflow: hidden; // this will cut off the text
+	}
+}
