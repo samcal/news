@@ -1,12 +1,14 @@
-<article>
+<article class='card'>
 	<h1><%= @article.title %></h1>
 	<hr />
 	<% if @article.image.exists? %>
 		<%= image_tag @article.image.url(:medium) %>
-		<div class='divider'></div>
+  <hr class='divider' />
 	<% end %>
-	<%= @article.text.html_safe %>
-	<hr />
+  <div class="body">
+  	<%= @article.text.html_safe %>
+  </div>
+  <hr />
 	<div class='sub'>by <%= @article.author_name %> on <%= @article.created_at.strftime("%m/%d/%Y") %></div>
 </article>
 
