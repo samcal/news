@@ -21,6 +21,14 @@ a.no-underline:hover {
 	text-decoration: none;
 }
 
+p.notice {
+	color: #0d0;
+}
+
+p.alert {
+	color: #d00;
+}
+
 header {
 	a:hover {
 		text-decoration: none;
@@ -52,6 +60,37 @@ button.btn-ma, button.btn-ma:hover {
 	border: 1px solid $splash;
 	color: $splash;
 	background-color: white;
+}
+
+.container {
+	margin-bottom: 50px; // To leave space for the fixed footer
+}
+
+footer {
+	border-top: 1px solid #bbb;
+	background-color: #eee;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	visibility: hidden;
+	ul {
+		list-style-type: none;
+		text-align: center;
+		li {
+			display: inline;
+			color: #aaa;
+			margin: auto 5px auto;
+			a {
+				color: #aaa;
+				text-decoration: underline;
+			}
+			a:hover {
+				color: #aaa;
+				text-decoration: none;
+			}
+		}
+	}
 }
 
 .card{
