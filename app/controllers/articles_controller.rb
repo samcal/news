@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+	before_action :require_login, only: [:new, :create]
+
 	def index
 		@articles = Article.all.reverse
 	end
@@ -21,6 +23,13 @@ class ArticlesController < ApplicationController
 	private
 		def article_params
 			params.require(:article).permit(:title, :author_name, :category, :image, :text)
+		end
+
+		def require_login
+			unless user_signed_in?
+				flash[:error] = "You must be logged in to do that..."
+				redirect_to root_path
+			end
 		end
 
 end

@@ -9,8 +9,12 @@
 <body>
 	<div class='container'>
 		<header><%= link_to root_path do %><h1>M-A Bear News</h1><% end %></header>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
+		<% if notice %>
+			<p class="notice"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+			<p class="alert"><%= alert %></p>
+		<% end %>
 		<div class='row'>
 			<div class='col-md-2'>
 				<ul class='nav nav-pills nav-stacked'>
@@ -25,5 +29,22 @@
 			</div>
 		</div>
 	</div>
+	<footer>
+		<ul>
+			<li>&copy; Menlo-Atherton High School. All Rights Reserved.</li>
+			<% if user_signed_in? %>
+				<li>Signed In as <strong><%= current_user.email %></strong></li>
+				<li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to "Log In", new_user_session_path %></li>
+			<% end %>
+		</ul>
+	</footer>
+	<script type="text/javascript">
+		$(window).scroll(function() {
+			if ($('footer').offset().top > $('body').height()) $('footer').addClass('slideUp');
+			else $('footer').removeClass('slideUp');
+		})
+	</script>
 </body>
 </html>

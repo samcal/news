@@ -14,7 +14,7 @@ describe ArticlesController do
 		end
 
 		it "loads all of the articles into @articles" do
-			article1, article2 = Article.create!, Article.create!
+			article1, article2 = create(:article), create(:article)
 			get :index
 			expect(assigns(:articles)).to match_array([article1, article2])
 		end
@@ -22,29 +22,29 @@ describe ArticlesController do
 
 	describe "GET show" do
 		it "responds successfully with an HTTP 200 status code" do
-			article = Category.create!.articles.create!
-			get :show, id: article.id
+			article = create(:article)
+			get :show, id: article.slug
 			expect(response).to be_success
 			expect(response.status).to eq(200)
 		end
 
 		it "renders the show template" do
-			article = Category.create!.articles.create!
-			get :show, id: article.id
+			article = create(:article)
+			get :show, id: article.slug
 			expect(response).to render_template("show")
 		end
 
 		it "loads the article into @article" do
-			article = Category.create!.articles.create!
-			get :show, id: article.id
+			article = create(:article)
+			get :show, id: article.slug
 			expect(assigns(:article)).to eq(article)
 		end
 	end
 
-	describe "POST create" do
-		it "passes params to article model" do
-			post :create, :article => {:title => 'Article Title'}
-			assigns(:article).title.should == 'Article Title'
+	describe "GET new" do
+		it "redirects to home if not authenticated" do
+			get :new
+			expect(response).to redirect_to(root_path)
 		end
 	end
 end
