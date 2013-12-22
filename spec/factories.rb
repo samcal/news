@@ -1,4 +1,10 @@
 FactoryGirl.define do
+	factory :user do
+		email 'jdoe@example.com'
+		password "1234567890"
+		password_confirmation { |u| u.password }
+	end
+
 	factory :category do
 		sequence(:name) { |n| "Category#{n}" }
 	end
