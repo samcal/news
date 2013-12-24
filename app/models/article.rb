@@ -10,10 +10,11 @@ class Article < ActiveRecord::Base
 	# validates :category, :presence => true
 
 	def short_title
-		if title.split.size <= 5
+		max_length = 45    # Maximum length in characters
+		if title.length <= max_length
 			return title
 		else
-			return title.split[0..4].join(' ') + '...'
+			return title[0..max_length-1].split(' ')[0..-2].join(' ') + '...'
 		end
 	end
 
