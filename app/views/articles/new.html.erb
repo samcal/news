@@ -10,8 +10,8 @@
 	</p>
 
 	<p>
-		<%= f.label :category %><br />
-		<%= select_tag :category, options_for_select(@categories.map{|c|c.name}) %><br />
+		<%= f.label :category_id %><br />
+		<%= f.select :category_id, @categories.map{ |c| [c.name, c.id] }, :prompt => true %>
 	</p>
 
 	<p>

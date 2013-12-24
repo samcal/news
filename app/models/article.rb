@@ -7,6 +7,8 @@ class Article < ActiveRecord::Base
 
 	has_attached_file :image, :styles => {:thumb => "300x230", :medium => "600x416"}
 
+	# validates :category, :presence => true
+
 	def short_title
 		if title.split.size <= 5
 			return title
