@@ -1,17 +1,17 @@
+<h2>New Article</h2>
+<hr />
+
 <%= form_for :article, url: articles_path, :html => {:multipart => true} do |f| %>
 	<p>
-		<%= f.label :title %><br />
-		<%= f.text_field :title %><br />
+		<%= f.text_field :title, :class => 'form-control', :placeholder => 'Title' %><br />
 	</p>
 
 	<p>
-		<%= f.label :author_name %><br />
-		<%= f.text_field :author_name %><br />
+		<%= f.text_field :author_name, :class => 'form-control', :placeholder => 'Author Name' %><br />
 	</p>
 
 	<p>
-		<%= f.label :category_id %><br />
-		<%= f.select :category_id, @categories.map{ |c| [c.name, c.id] }, :prompt => true %>
+		<%= f.select(:category_id, @categories.map{ |c| [c.name, c.id] }, {}, :class => 'form-control') %>
 	</p>
 
 	<p>
@@ -20,11 +20,10 @@
 	</p>
 
 	<p>
-		<%= f.label :text %><br />
-		<%= f.text_area :text %><br />
+		<%= f.text_area :text, :class => 'form-control', :placeholder => 'Body of the article...' %><br />
 	</p>
 
 	<p>
-		<%= f.submit %>
+		<%= f.submit :class => 'btn btn-default' %>
 	</p>
 <% end %>
