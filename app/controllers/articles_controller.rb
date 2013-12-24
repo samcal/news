@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 	before_action :require_login, only: [:new, :create]
 
 	def index
-		@articles = Article.all.reverse
+		@articles = Article.paginate(:page => params[:page]).order('created_at DESC')
 	end
 
 	def show

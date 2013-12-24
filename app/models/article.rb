@@ -7,7 +7,9 @@ class Article < ActiveRecord::Base
 
 	has_attached_file :image, :styles => {:thumb => "300x230", :medium => "600x416"}
 
-	# validates :category, :presence => true
+	validates :category, :presence => true
+
+	self.per_page = 12
 
 	def short_title
 		max_length = 45    # Maximum length in characters
