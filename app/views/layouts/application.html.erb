@@ -10,8 +10,49 @@
   <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 <body>
+	<header>
+		<div class='logo'>
+			<%= link_to root_path do %><h1>M-A Bear News</h1><% end %>
+		</div>
+	</header>
+	<% if current_page?(root_path) %>
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		  	<% @categories.each_with_index do |c, index| %>
+		  		<% if c.articles.last %>
+		    	<li data-target="#carousel-example-generic" data-slide-to="<%= index %>" <% if index == 0 %>class="active"<% end %>></li>
+		    	<% end %>
+		    <% end %>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner">
+	    	<% @categories.each_with_index do |c, index| %>
+	    		<% if c.articles.last %>
+	    			<div class="item<% if index == 0 %> active<% end %>">
+		      	<%= link_to article_path(c.articles.last), class: "no-underline" do %>
+		      		<%= image_tag c.articles.last.image.url %>
+		      	<% end %>
+		      	<div class="carousel-caption">
+		      	 	<h3><%= c.name %></h3>
+		      	 	<p><%= c.articles.last.title %></p>
+		      	</div>
+		      	</div>
+		      <% end %>
+	      <% end %>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div>
+	<% end %>
 	<div class='container'>
-		<header><%= link_to root_path do %><h1>M-A Bear News</h1><% end %></header>
 		<% if notice %>
 			<p class="notice"><%= notice %></p>
 		<% end %>
@@ -43,11 +84,5 @@
 			<% end %>
 		</ul>
 	</footer>
-	<script type="text/javascript">
-		$(window).scroll(function() {
-			if ($('footer').offset().top > $('body').height()) $('footer').addClass('slideUp');
-			else $('footer').removeClass('slideUp');
-		})
-	</script>
 </body>
 </html>

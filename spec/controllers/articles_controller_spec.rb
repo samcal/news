@@ -71,16 +71,17 @@ describe ArticlesController do
 			before do
 				sign_in create(:user)
 				@article = attributes_for(:article)
+				category = create(:category)
+				@article['category_id'] = category.id
 				post :create, :article => @article
-				@instance = Article.last
 			end
 
 			it "creates an article" do
-				@instance.title.should == @article[:title]
+				Article.last.title.should == @article[:title]
 			end
 
 			it "redirects to the article page" do
-				expect(response).to redirect_to(article_path(@instance.slug))
+				expect(response).to redirect_to(article_path(Article.last.slug))
 			end
 		end
 	end

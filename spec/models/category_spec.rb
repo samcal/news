@@ -6,6 +6,6 @@ describe Category do
   	article1 = create(:article, :category => category)
   	article2 = create(:article, :category => category)
 
-  	expect(category.ordered_articles).to eq([article2, article1])
+  	expect(category.articles.order('created_at DESC')).to eq([article2, article1])
   end
 end

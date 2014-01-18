@@ -4,7 +4,5 @@ class Category < ActiveRecord::Base
 
 	has_many :articles
 
-	def ordered_articles
-		articles.reverse
-	end
+  validates_presence_of :name
 end

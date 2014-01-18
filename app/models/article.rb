@@ -7,7 +7,10 @@ class Article < ActiveRecord::Base
 
 	has_attached_file :image, :styles => {:thumb => "300x230", :medium => "600x416"}
 
-	validates :category, :presence => true
+	validates_presence_of :category
+	validates_presence_of :title
+	validates_presence_of :text
+	validates_presence_of :author_name
 
 	self.per_page = 12
 
