@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 	belongs_to :category
 	has_many :comments
 
-	has_attached_file :image, :styles => {:thumb => "300x230", :medium => "600x416"}
+	has_attached_file :image, :styles => {:thumb => "300x230#", :medium => "600x416#"}
 
 	validates_presence_of :category
 	validates_presence_of :title
