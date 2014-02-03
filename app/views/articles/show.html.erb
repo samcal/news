@@ -2,7 +2,7 @@
 	<h1><%= @article.title %></h1>
 	<hr />
 	<% if @article.image.exists? %>
-		<%= image_tag @article.image.url(:medium) %>
+		<%= image_tag @article.image.url(:medium), :class => "main" %>
   <hr class='divider' />
 	<% end %>
   <div class="body">
