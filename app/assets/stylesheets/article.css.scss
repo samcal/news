@@ -30,6 +30,14 @@ article {
   img.main {
     width: 80%;
   }
+  @media (max-width: 756px) {
+    img {
+      width: 80%;
+    }
+    img.main {
+      width: 100%;
+    }
+  }
   .body {
     width:90%;
     font-size:16px;
