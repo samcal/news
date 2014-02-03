@@ -14,6 +14,24 @@ class ArticlesController < ApplicationController
 		end
 	end
 
+	def edit
+		@article = Article.friendly.find(params[:id])
+	end
+
+	def update
+		@article = Article.friendly.find(params[:id])
+
+		if @article.update(article_params)
+			redirect_to @article
+		else
+			render 'edit'
+		end
+	end
+
+	def new
+		@article = Article.new
+	end
+
 	def create
 		@article = Article.new(article_params)
 		@article.save

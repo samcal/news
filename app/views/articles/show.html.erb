@@ -6,7 +6,7 @@
   <hr class='divider' />
 	<% end %>
   <div class="body">
-  	<%= @article.text.html_safe %>
+  	<%= render_markdown @article.text %>
   </div>
   <hr />
 	<div class='sub'>by <%= @article.author_name %> on <%= @article.created_at.strftime("%m/%d/%Y") %></div>

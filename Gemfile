@@ -30,6 +30,9 @@ gem 'friendly_id'
 # Paperclip for attaching images
 gem "paperclip", "~> 3.0"
 
+# Redcarpet for Markdown rendering
+gem 'redcarpet'
+
 # Devise for authentication
 gem "devise"
 
