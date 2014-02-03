@@ -2,7 +2,6 @@
 	border: 1px solid #BBB;
 	border-radius: 0px;
 	width: 100%;
-  height: 250px;
 	padding: 10px;
 	margin-bottom: 18px;
 	img {
@@ -35,4 +34,10 @@
     // height:17px; // doesn't let grid get screwed up but won't cut off text
     // overflow: hidden; // this will cut off the text
 	}
+}
+
+@media (min-width: 756px) {
+  .article-thumbnail {
+    height: 250px;
+  }
 }
