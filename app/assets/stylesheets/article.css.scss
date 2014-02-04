@@ -12,6 +12,7 @@ h1 {
 article {
 	font-family: Georgia, serif;
 	padding: 10px;
+  position: relative;
 	hr {
 		margin-top: 2px;
     border-color: $lightgray;
@@ -30,7 +31,7 @@ article {
   img.main {
     width: 80%;
   }
-  @media (max-width: 756px) {
+  @media (max-width: 768px) {
     img {
       width: 80%;
     }
@@ -56,4 +57,18 @@ article {
 		border-left: 10px solid maroon;
 		padding: 0 0 0 30px;
 	}
+  .edit {
+    font-family: 'Lato', sans-serif;
+    background-color: maroon;
+    line-height: 20px;
+    width: 50px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: -21px;
+    border-radius: 3px 3px 0 0;
+    a {
+      color: white;
+    }
+  }
 }

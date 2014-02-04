@@ -20,21 +20,27 @@
 		margin: 0;
 	}
 	.sub {
-    text-align:center;
-    margin-top:7px;
-    margin-bottom:-3px;
 		font-family: 'Lato', sans-serif;
 		font-weight: 300;
 		font-size: 12px;
 		color: rgba(203,203,203,1);
-    // Commented out because this doesn't work when the grid gets small.
-    // Sub title too long fail safe
-    // height:17px; // doesn't let grid get screwed up but won't cut off text
-    // overflow: hidden; // this will cut off the text
+    border-top: 1px solid #aaa;
+    height: 17px;
+    position: relative;
+    .date {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .author {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
 	}
 }
 
-@media (min-width: 756px) {
+@media (min-width: 992px) {
   .article-thumbnail {
     height: 250px;
     h1 {

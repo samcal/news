@@ -1,5 +1,10 @@
 <article class='card'>
 	<h1><%= @article.title %></h1>
+  <% if user_signed_in? %>
+    <div class='edit'>
+      <%= link_to edit_article_path(@article) do %>Edit<% end %>
+    </div>
+  <% end %>
 	<hr />
 	<% if @article.image.exists? %>
 		<%= image_tag @article.image.url(:medium), :class => "main" %>

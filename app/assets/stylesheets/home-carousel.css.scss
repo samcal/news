@@ -1,7 +1,7 @@
 html, body{height:100%;}
 .carousel{height:80%;}
 .carousel-inner, .item{height:100%;}
-.item img{width:100%;}
+.item img{min-width:100%;min-height:100%}
 
 header .logo {
   position: absolute;
