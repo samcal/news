@@ -12,6 +12,10 @@ class Article < ActiveRecord::Base
   validates_presence_of :caption
 	validates_presence_of :text
 	validates_presence_of :author_name
+  
+  scope :published, -> { where(is_published: true) }
+  scope :to_be_edited, -> { where(is_draft: false, is_published: false) }
+  scope :drafts, -> { where(is_draft: true) }
 
 	self.per_page = 12
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205061828) do
+ActiveRecord::Schema.define(version: 20140205063852) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 20140205061828) do
     t.string   "caption"
     t.boolean  "is_draft",           default: true
     t.boolean  "is_published",       default: false
+    t.integer  "user_id"
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id"
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "categories", force: true do |t|
     t.string   "name"

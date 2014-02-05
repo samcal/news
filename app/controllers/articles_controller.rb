@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 	before_action :require_login, only: [:new, :create]
 
 	def index
-		@articles = Article.paginate(:page => params[:page]).order('created_at DESC')
+    @articles = Article.published.order('created_at DESC').paginate(:page => params[:page])
 	end
 
 	def show
