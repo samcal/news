@@ -2,6 +2,7 @@ class Article < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :title, use: [:slugged, :history]
 
+  belongs_to :user
 	belongs_to :category
 	has_many :comments
 
@@ -16,6 +17,7 @@ class Article < ActiveRecord::Base
   scope :published, -> { where(is_published: true) }
   scope :to_be_edited, -> { where(is_draft: false, is_published: false) }
   scope :drafts, -> { where(is_draft: true) }
+  scope :owner, -> (owner) { where(user_id: owner.id) }
 
 	self.per_page = 12
 
