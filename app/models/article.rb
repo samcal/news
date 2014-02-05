@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
 
 	validates_presence_of :category
 	validates_presence_of :title
+  validates_presence_of :caption
 	validates_presence_of :text
 	validates_presence_of :author_name
 

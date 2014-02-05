@@ -8,6 +8,9 @@
 	<hr />
 	<% if @article.image.exists? %>
 		<%= image_tag @article.image.url(:medium), :class => "main" %>
+    <div class='caption'>
+      <%= @article.caption %>
+    </div>
   <hr class='divider' />
 	<% end %>
   <div class="body">

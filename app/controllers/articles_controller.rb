@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
 	private
 		def article_params
-			params.require(:article).permit(:title, :author_name, :category_id, :image, :text)
+			params.require(:article).permit(:title, :author_name, :category_id, :image, :caption, :text)
 		end
 
 		def require_login
