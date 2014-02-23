@@ -43,11 +43,4 @@ class ArticlesController < ApplicationController
 			params.require(:article).permit(:title, :author_name, :category_id, :image, :caption, :text)
 		end
 
-		def require_login
-			unless user_signed_in?
-				flash[:error] = "You must be logged in to do that..."
-				redirect_to root_path
-			end
-		end
-
 end

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= favicon_link_tag '/favicon.ico' %>
+  <%= csrf_meta_tags %>
+
+  <meta name='viewport' content='width=device-width, user-scalable=no'>
+</head>
+<body class="dashboard">
+  <header>
+    <div class='top-bar'>
+      <h1 class='pull-left'>M-A Bear News</h1>
+      <ul>
+        <li><%= link_to 'Drafts', contributor_drafts_path %></li>
+        <li><%= link_to 'Published', contributor_published_path %></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+      </ul>
+    </div>
+  </header>
+  <div class='container allow-for-top-bar'>
+    <div class='row'>
+      <div class='col-md-2'></div>
+      <div class='col-md-8'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
