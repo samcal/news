@@ -14,7 +14,10 @@ FactoryGirl.define do
 		sequence(:id) { |n| n }
 		sequence(:title) { |n| "Article#{n}" }
 		text "The Body of the Article"
+		caption "The caption of the photo"
 		author_name "Jon Doe"
+		is_draft false
+		is_published true
 	end
 
 	factory :comment do

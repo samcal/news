@@ -18,6 +18,15 @@ describe ArticlesController do
 			get :index
 			expect(assigns(:articles)).to match_array([article1, article2])
 		end
+
+		it "only loads published articles into @articles" do
+			article1, article2 = create(:article), create(:article)
+			article2.is_published = false
+			article2.save!
+
+			get :index
+			expect(assigns(:articles)).to match_array([article1])
+		end
 	end
 
 	describe "GET show" do
@@ -52,9 +61,26 @@ describe ArticlesController do
 	end
 
 	describe "GET new" do
-		it "redirects to home if not authenticated" do
-			get :new
-			expect(response).to redirect_to(root_path)
+		context "if not authenticated" do
+			it "redirects to home" do
+				get :new
+				expect(response).to redirect_to(root_path)
+			end
+		end
+
+		context "if authenticated" do
+			before do
+				sign_in create(:user)
+				get :new
+			end
+
+			it "loads a new article into @article" do
+				expect(assigns(:article)).to be_a_new(Article)
+			end
+
+			it "loads the new template" do
+				expect(response).to render_template('new')
+			end
 		end
 	end
 
