@@ -9,7 +9,7 @@ class Ability
     elsif user.writer?
       can :read, :all
       can :create, Article
-      can :update, Article, :is_draft => true
+      can :update, Article, :is_draft => true, :user => user
     else
       can :read, :all
       cannot :read, Article, :is_published => false

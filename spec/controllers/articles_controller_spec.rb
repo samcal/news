@@ -58,6 +58,35 @@ describe ArticlesController do
 			get :show, id: slug
 			expect(response.status).to eq(301)
 		end
+
+		context 'article is a draft' do
+			before do
+				@article = create(:article)
+				@article.is_draft = true
+				@article.is_published = false
+				@article.save!
+			end
+
+			it 'redirects if user is not the owner' do
+				sign_in create(:user)
+				get :show, id: @article.slug
+				expect(response).to redirect_to(root_path)
+			end
+		end
+
+		context 'article is not yet published' do
+			before do
+				@article = create(:article)
+				@article.is_draft = false
+				@article.is_published = false
+				@article.save!
+			end
+
+			it 'redirects if the user is not logged in' do
+				get :show, id: @article.slug
+				expect(response).to redirect_to(root_path)
+			end
+		end
 	end
 
 	describe "GET new" do
@@ -86,7 +115,7 @@ describe ArticlesController do
 
 	describe "POST create" do
 		context "if not authenticated" do
-			it "redirects to home if not authenticated" do
+			it "redirects to home" do
 				article = attributes_for(:article)
 				post :create, :article => article
 				expect(response).to redirect_to(root_path)
@@ -108,6 +137,83 @@ describe ArticlesController do
 
 			it "redirects to the article page" do
 				expect(response).to redirect_to(article_path(Article.last.slug))
+			end
+		end
+	end
+
+	describe 'GET edit' do
+		context 'if not authenticated' do
+			it 'redirects back home' do
+				article = create(:article)
+				get :edit, id: article.slug
+				expect(response).to redirect_to(root_path)
+			end
+		end
+
+		context 'if authenticated' do
+			before do
+				@user = create(:user)
+
+				@article = create(:article)
+				@article.user = @user
+				@article.save!
+			end
+
+			it 'allows the author to view' do
+				sign_in @user
+				get :edit, id: @article.slug
+				expect(response.status).to eq(200)
+			end
+
+			it 'allows editors to view' do
+				sign_in create(:editor)
+				get :edit, id: @article.slug
+				expect(response.status).to eq(200)
+			end
+
+			it 'does not allow other writers to view' do
+				sign_in create(:writer)
+				get :edit, id: @article.slug
+				expect(response.status).to eq(302)
+			end
+		end
+	end
+
+	describe 'PUT update' do
+		context 'if not authenticated' do
+			it 'redirects to the root path' do
+				article = create(:article)
+				put :update, id: article.slug, article: {}
+				expect(response).to redirect_to(root_path)
+			end
+		end
+
+		context 'if authenticated' do
+			before do
+				@article = create(:article)
+			end
+
+			it 'allows the original author to update' do
+				sign_in @article.user
+				new_attr = {title: 'different title'}
+				put :update, id: @article.slug, article: new_attr
+				expect(response).to redirect_to(article_path)
+				@article.reload
+				expect(@article.title).to eq(new_attr[:title])
+			end
+
+			it 'allows an editor to update' do
+				sign_in create(:editor)
+				new_attr = {title: 'another different title'}
+				put :update, id: @article.slug, article: new_attr
+				@article.reload
+				expect(@article.title).to eq(new_attr[:title])
+			end
+
+			it 'renders the edit template if there is a mistake' do
+				sign_in @article.user
+				put :update, id: @article.slug, article: {title: ''}
+				expect(response).to render_template('edit')
 			end
 		end
 	end

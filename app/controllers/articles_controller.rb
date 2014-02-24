@@ -7,6 +7,15 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.friendly.find(params[:id])
+
+		if @article.is_draft and @article.user != current_user
+			redirect_to root_path
+		end
+
+		if not (@article.is_published or user_signed_in?)
+			redirect_to root_path
+		end
+
 		@current_category = @article.category
 		@similar_articles = @article.similar_articles
 		unless request.path == article_path(@article)
@@ -16,6 +25,11 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.friendly.find(params[:id])
+		if not (@article.user == current_user or current_user.editor?)
+			redirect_to root_path
+		else
+			render layout: 'dashboard'
+		end
 	end
 
 	def update
