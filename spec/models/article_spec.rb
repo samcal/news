@@ -13,7 +13,7 @@ describe Article do
   	article1 = create(:article, :title => "Hello")
   	article2 = create(:article, :title => "This is a very long title and should be truncated probably by some method of the Article model class")
 
-  	article1.short_title.should == article1.title
-  	article2.short_title.should_not == article2.title
+  	expect(article1.short_title).to eq(article1.title)
+  	expect(article2.short_title).to_not eq(article2.title)
   end
 end
