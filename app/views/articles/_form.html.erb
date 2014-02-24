@@ -8,6 +8,7 @@
   </p>
 
   <p>
+    <%= f.label :category %><br />
     <%= f.select(:category_id, @categories.map{ |c| [c.name, c.id] }, {}, :class => 'form-control') %>
   </p>
 
@@ -19,7 +20,7 @@
 
   <p>
     <%= f.label :caption %><br />
-    <%= f.text_field :caption, :class => 'form-control', :placeholder => "Caption for image" %>
+    <%= f.text_field :caption, :class => 'form-control', :placeholder => "Caption for the image" %>
   </p>
 
   <p>
