@@ -12,7 +12,9 @@
 <body class="dashboard">
   <header>
     <div class='top-bar'>
-      <h1 class='pull-left'>M-A Bear News</h1>
+      <%= link_to root_path do %>
+        <h1 class='pull-left'>M-A Bear News</h1>
+      <% end %>
       <ul>
         <li><%= link_to 'Drafts', contributor_drafts_path, :class => current_page?(contributor_drafts_path) ? 'active' : '' %></li>
         <li><%= link_to 'Published', contributor_published_path, :class => current_page?(contributor_published_path) ? 'active' : '' %></li>
