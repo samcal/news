@@ -1,1 +1,9 @@
-<%= render @drafts %>
+<%= link_to new_article_path, class: "no-underline" do %>
+  <div class='new-draft'>
+    <span class='glyphicon glyphicon-plus'></span> New Draft
+  </div>
+<% end %>
+
+<div class='row'>
+  <%= render @drafts %>
+</div>

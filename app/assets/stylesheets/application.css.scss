@@ -54,8 +54,18 @@ header {
 		padding-left: 20px;
 		ul {
 			list-style-type: none;
+			position: absolute;
+			right: 40px;
+			top: 40%;
 			li {
 				display: inline;
+				margin: auto 10px;
+				a {
+					color: #aaa;
+				}
+				a.active {
+					color: maroon;
+				}
 			}
 		}
 	}
@@ -67,6 +77,15 @@ header {
 
 .dashboard {
 	background-color: #eee;
+}
+
+.new-draft {
+	width: 100%;
+	text-align: center;
+	padding: 2px;
+	border: 1px solid #aaa;
+	color: #aaa;
+	margin-bottom: 30px;
 }
 
 .nav {

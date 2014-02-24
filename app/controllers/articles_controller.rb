@@ -44,6 +44,7 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
+		render layout: 'dashboard'
 	end
 
 	def create
