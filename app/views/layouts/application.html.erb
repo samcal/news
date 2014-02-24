@@ -76,7 +76,9 @@
 			<li>&copy; Menlo-Atherton High School. All Rights Reserved.</li>
 			<% if user_signed_in? %>
 				<li>Signed In as <strong><%= current_user.email %></strong></li>
-        <li><%= link_to "Dashboard", contributor_drafts_path %></li>
+				<% if current_user.writer? %>
+	        <li><%= link_to "Dashboard", contributor_drafts_path %></li>
+	      <% end %>
 				<li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
 			<% else %>
 				<li><%= link_to "Log In", new_user_session_path %></li>

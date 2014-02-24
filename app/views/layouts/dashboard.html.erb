@@ -16,6 +16,9 @@
         <h1 class='pull-left'>M-A Bear News</h1>
       <% end %>
       <ul>
+        <% if current_user.editor? %>
+          <li>For Review</li>
+        <% end %>
         <li><%= link_to 'Drafts', contributor_drafts_path, :class => current_page?(contributor_drafts_path) ? 'active' : '' %></li>
         <li><%= link_to 'Published', contributor_published_path, :class => current_page?(contributor_published_path) ? 'active' : '' %></li>
         <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
