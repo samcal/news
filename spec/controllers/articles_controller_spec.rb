@@ -132,7 +132,7 @@ describe ArticlesController do
 			end
 
 			it "creates an article" do
-				Article.last.title.should == @article[:title]
+				expect(Article.last.title).to eq(@article[:title])
 			end
 
 			it "redirects to the article page" do
