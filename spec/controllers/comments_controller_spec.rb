@@ -7,7 +7,7 @@ describe CommentsController do
 			comment = attributes_for(:comment)
 			comment[:article_id] = article.id
 			post :create, :comment => comment
-			article.comments.last.name.should == comment[:name]
+			expect(article.comments.last.name).to eq(comment[:name])
 		end
 	end
 end
