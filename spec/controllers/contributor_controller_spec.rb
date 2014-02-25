@@ -95,4 +95,36 @@ describe ContributorController do
       end
     end
   end
+
+  describe 'GET #for_review' do
+    context 'if authenticated' do
+      it 'allows editor to access' do
+        sign_in create(:editor)
+        get :for_review
+        expect(response.status).to eq(200)
+      end
+
+      it 'redirects anyone else' do
+        sign_in create(:writer)
+        get :for_review
+        expect(response).to redirect_to(root_path)
+      end
+
+      it 'loads the right articles into @for_review' do
+        sign_in create(:editor)
+        article1 = create(:draft)
+        article2 = create(:unpublished_article)
+        article3 = create(:article)
+        get :for_review
+        expect(assigns(:for_review)).to match_array([article2])
+      end
+    end
+
+    context 'if not authenticated' do
+      it 'redirects to root path' do
+        get :for_review
+        expect(response).to redirect_to(root_path)
+      end
+    end
+  end
 end

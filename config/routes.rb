@@ -9,6 +9,7 @@ News::Application.routes.draw do
   namespace :contributor do
     get :drafts
     get :published
+    get :for_review
     resources :articles
   end
 

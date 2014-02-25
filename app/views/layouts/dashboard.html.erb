@@ -17,7 +17,7 @@
       <% end %>
       <ul>
         <% if current_user.editor? %>
-          <li>For Review</li>
+          <li><%= link_to 'For Review', contributor_for_review_path, :class => current_page?(contributor_for_review_path) ? 'active' : '' %></li>
         <% end %>
         <li><%= link_to 'Drafts', contributor_drafts_path, :class => current_page?(contributor_drafts_path) ? 'active' : '' %></li>
         <li><%= link_to 'Published', contributor_published_path, :class => current_page?(contributor_published_path) ? 'active' : '' %></li>
