@@ -13,9 +13,7 @@
  */
 
 @import "bootstrap";
-
-$splash: #911425;
-$lightgray: rgba(203,203,203,1);
+@import "variables";
 
 a.no-underline:hover {
 	text-decoration: none;
@@ -29,58 +27,6 @@ p.alert {
 	color: #d00;
 }
 
-header {
-	a:hover {
-		text-decoration: none;
-	}
-	h1 {
-		color: $splash;
-		font-family: 'Lato', sans-serif;
-		font-weight: 100;
-		text-align: center;
-    font-size: 35px;  
-    margin: 25px auto;
-	}
-	.top-bar {
-		position: fixed;
-		height: 100px;
-		top: 0;
-		left: 0;
-		right: 0;
-		background-color: white;
-		border-bottom: 1px solid #ddd;
-		box-shadow: 0 4px 8px rgba(212,212,212,.6);
-		z-index: 999;
-		padding-left: 20px;
-		ul {
-			list-style-type: none;
-			position: absolute;
-			right: 40px;
-			top: 40%;
-			li {
-				display: inline;
-				margin: auto 10px;
-				a {
-					color: #aaa;
-				}
-				a:hover {
-					color: #ccc;
-				}
-				a.active {
-					color: maroon;
-				}
-			}
-		}
-	}
-}
-
-.allow-for-top-bar {
-	margin-top: 150px !important;
-}
-
-.dashboard {
-	background-color: #eee;
-}
 
 .new-draft {
 	width: 100%;
