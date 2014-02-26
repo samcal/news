@@ -1,9 +1,9 @@
 @import "variables";
 
-$headerHeight: 70px;
-$headerTitleFontSize: 35px;
+$headerHeight: 80px;
+$headerTitleFontSize: 28px;
 
-header {
+header, footer {
   a:hover {
     text-decoration: none;
   }
@@ -12,7 +12,7 @@ header {
     font-family: 'Lato', sans-serif;
     font-weight: 200;
     text-align: center;
-    font-size: 35px;  
+    font-size: $headerTitleFontSize;  
     margin: ($headerHeight - $headerTitleFontSize)*.5 auto;
   }
   .top-bar {
@@ -25,15 +25,16 @@ header {
     border-bottom: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(212,212,212,.6);
     z-index: 999;
-    padding-left: 20px;
+    padding-left: 30px;
     ul {
       list-style-type: none;
       position: absolute;
       right: 40px;
       top: 40%;
+      font-weight: 800;
       li {
         display: inline;
-        margin: auto 10px;
+        margin: auto 20px;
         a {
           color: #aaa;
         }
