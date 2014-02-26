@@ -9,13 +9,12 @@ header, footer {
   }
   h1 {
     color: $splash;
-    font-family: 'Lato', sans-serif;
-    font-weight: 200;
-    text-align: center;
-    font-size: $headerTitleFontSize;  
-    margin: ($headerHeight - $headerTitleFontSize)*.5 auto;
   }
   .top-bar {
+    h1 { // styling specific to the dashboard
+      font-size: $headerTitleFontSize;  
+      margin: ($headerHeight - $headerTitleFontSize)*.5 auto;
+    }
     position: fixed;
     height: $headerHeight;
     top: 0;
