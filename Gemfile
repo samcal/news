@@ -7,7 +7,11 @@ gem 'rails', '4.0.0'
 gem 'sqlite3'
 
 # Use Active Model Serializers for API
+<<<<<<< HEAD
 gem 'active_model_serializers'
+=======
+gem 'active_model_serializers', '~> 2.0.3'
+>>>>>>> Add active_model_serializer gem
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -63,9 +67,9 @@ group :development do
 end
 
 group :test do
-	gem 'factory_girl_rails'
-	gem 'capybara'
-	gem 'simplecov', :require => false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'simplecov', :require => false
 end
 
 # Use ActiveModel has_secure_password
