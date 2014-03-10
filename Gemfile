@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 gem 'sqlite3'
 
 # Use Active Model Serializers for API
-gem 'active_model_serializers', '~> 2.0.3'
+gem 'active_model_serializers'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
