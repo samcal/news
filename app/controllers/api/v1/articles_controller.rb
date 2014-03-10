@@ -1,17 +1,23 @@
 class API::V1::ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all.order('created_at DESC')
-    respond_to do |format|
-      format.json { render :json => @articles }
-    end
+    params[:page] ? paginate : all
   end
 
   def show
-    @article = Article.friendly.find(params[:id])
-    respond_to do |format|
-      format.json { render :json => @article }
-    end
+    @article = Article.published.friendly.find(params[:id])
+    render json: @article
   end
+  
+  private
+    def paginate
+      @articles = Article.published.paginate(:page => params[:page])
+      render json: @articles
+    end
+
+    def all
+      @articles = Article.published.order('created_at DESC')
+      render json: @articles
+    end
 
 end
