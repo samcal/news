@@ -10,6 +10,4 @@ class ArticleSerializer < ActiveModel::Serializer
 
   has_many :similar_articles, embed: :ids
 
-
-
 end
