@@ -53,6 +53,10 @@ end
 
 gem 'rspec-rails', '~> 3.0.0.beta', :group => [:test, :development]
 
+group :development do
+  gem 'terminal-notifier-guard'
+end
+
 group :test do
 	gem 'factory_girl_rails'
 	gem 'capybara'
