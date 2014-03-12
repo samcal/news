@@ -75,4 +75,5 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'guard-rspec', "~> 4.2.2"
+gem 'rspec', '~> 3.0.0.beta2'
+gem 'guard-rspec', "~> 4.2.8"
