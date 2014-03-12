@@ -10,14 +10,22 @@
   <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 <body>
-	<header>
+  <header>
+    <div class='top-bar'>
+      <%= link_to root_path do %>
+        <h1 class='pull-left'>M-A Bear News</h1>
+      <% end %>
+      
+    </div>
+  </header>
+	<!-- <header>
 		<div class='logo hidden-xs'>
 			<%= link_to root_path do %><h1>M-A Bear News</h1><% end %>
 		</div>
 		<div class='visible-xs'>
 			<%= link_to root_path do %><h1>M-A Bear News</h1><% end %>
 		</div>
-	</header>
+	</header> -->
 	<% if current_page?(root_path) %>
 		<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
 		  <!-- Indicators -->
