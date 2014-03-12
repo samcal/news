@@ -225,12 +225,13 @@ DEPENDENCIES
   devise
   factory_girl_rails
   friendly_id
-  guard-rspec (~> 4.2.2)
+  guard-rspec (~> 4.2.8)
   jbuilder (~> 1.2)
   jquery-rails
   paperclip (~> 3.0)
   rails (= 4.0.0)
   redcarpet
+  rspec (~> 3.0.0.beta2)
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.0)
   sdoc
