@@ -36,7 +36,17 @@ class ArticlesController < ApplicationController
 		@article = Article.friendly.find(params[:id])
 
 		if @article.update(article_params)
-			redirect_to @article
+			if params[:commit] == 'Save Draft'
+				redirect_to contributor_drafts_path
+			elsif params[:commit] == 'Preview'
+				render 'preview', layout: 'dashboard'
+			elsif params[:commit] == 'Submit'
+				@article.is_draft = false
+				@article.save!
+				redirect_to contributor_drafts_path
+			else
+				redirect_to @article
+			end
 		else
 			render 'edit', layout: 'dashboard'
 		end
@@ -53,7 +63,6 @@ class ArticlesController < ApplicationController
 		@article.save
 		redirect_to @article
 	end
-
 	private
 		def article_params
 			params.require(:article).permit(:title, :author_name, :category_id, :image, :caption, :text)
