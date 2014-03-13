@@ -1,0 +1,21 @@
+<article class='card'>
+  <h1><%= object.title %></h1>
+  <% if user_signed_in? %>
+    <div class='edit'>
+      <%= link_to edit_article_path(object) do %>Edit<% end %>
+    </div>
+  <% end %>
+  <hr />
+  <% if object.image.exists? %>
+    <%= image_tag object.image.url(:medium), :class => "main" %>
+    <div class='caption'>
+      <%= object.caption %>
+    </div>
+  <hr class='divider' />
+  <% end %>
+  <div class="body">
+    <%= render_markdown object.text %>
+  </div>
+  <hr />
+  <div class='sub'>by <%= object.author_name %> on <%= object.created_at.strftime("%m/%d/%Y") %></div>
+</article>
