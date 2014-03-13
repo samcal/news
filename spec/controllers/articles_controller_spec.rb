@@ -229,6 +229,14 @@ describe ArticlesController do
 				put :update, id: @article.slug, article: new_attr, commit: 'Preview'
 				expect(response).to render_template 'preview'
 			end
+
+			it 'submits the draft for review if requested' do
+				sign_in @article.user
+				new_attr = {text: 'Text to test submission'}
+				put :update, id: @article.slug, article: new_attr, commit: 'Submit'
+				@article.reload
+				expect(@article.is_draft).to be false
+			end
 		end
 	end
 end
