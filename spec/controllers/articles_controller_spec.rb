@@ -215,6 +215,20 @@ describe ArticlesController do
 				put :update, id: @article.slug, article: {title: ''}
 				expect(response).to render_template('edit')
 			end
+
+			it 'redirects to the drafts page on save' do
+				sign_in @article.user
+				new_attr = {text: 'A different body'}
+				put :update, id: @article.slug, article: new_attr, commit: 'Save Draft'
+				expect(response).to redirect_to contributor_drafts_path
+			end
+
+			it 'renders a preview page if requested' do
+				sign_in @article.user
+				new_attr = {text: 'New text for the article'}
+				put :update, id: @article.slug, article: new_attr, commit: 'Preview'
+				expect(response).to render_template 'preview'
+			end
 		end
 	end
 end
