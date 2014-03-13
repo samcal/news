@@ -1,6 +1,6 @@
 <article class='card'>
   <h1><%= object.title %></h1>
-  <% if user_signed_in? %>
+  <% if can? :update, object %>
     <div class='edit'>
       <%= link_to edit_article_path(object) do %>Edit<% end %>
     </div>
