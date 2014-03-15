@@ -1,12 +1,15 @@
 require 'spec_helper'
 
 describe CommentsController do
-	describe "POST create" do
+	describe "POST #create" do
+    let(:article) { create(:article) }
+    let(:comment) { attributes_for(:comment, article_id: article.id) }
+
+    before do
+      post :create, :comment => comment
+    end
+
 		it "creates a comment" do
-			article = create(:article)
-			comment = attributes_for(:comment)
-			comment[:article_id] = article.id
-			post :create, :comment => comment
 			expect(article.comments.last.name).to eq(comment[:name])
 		end
 	end
