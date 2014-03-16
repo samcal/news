@@ -77,7 +77,7 @@ describe ArticlesController do
 		end
 	end
 
-	describe "GET new" do
+	describe "GET #new" do
 		context "if not authenticated" do
 			it "redirects to home" do
 				get :new
@@ -101,7 +101,7 @@ describe ArticlesController do
 		end
 	end
 
-	describe "POST create" do
+	describe "POST #create" do
 		context "if not authenticated" do
 			it "redirects to home" do
 				article = attributes_for(:article)
@@ -129,7 +129,7 @@ describe ArticlesController do
 		end
 	end
 
-	describe 'GET edit' do
+	describe 'GET #edit' do
 		context 'if not authenticated' do
 			it 'redirects back home' do
 				article = create(:article)
@@ -162,7 +162,7 @@ describe ArticlesController do
 		end
 	end
 
-	describe 'PUT update' do
+	describe 'PUT #update' do
 		context 'if not authenticated' do
 			it 'redirects to the root path' do
 				article = create(:article)
