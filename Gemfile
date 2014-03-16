@@ -55,6 +55,8 @@ gem 'rspec-rails', '~> 3.0.0.beta', :group => [:test, :development]
 
 group :development do
   gem 'terminal-notifier-guard'
+  gem 'guard-livereload', require: false
+  gem "rack-livereload"
 end
 
 group :test do
@@ -76,4 +78,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'rspec', '~> 3.0.0.beta2'
-gem 'guard-rspec', "~> 4.2.8"
+gem 'guard-rspec', "~> 4.2.8", require: false
