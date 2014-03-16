@@ -9,7 +9,7 @@
 			<h1><%= article.short_title %></h1>
       <div class='sub'>
         <% if article.is_draft %>
-          Submit for Review
+          Draft
         <% else %>
           <% if article.is_published %>
             <div class='date'><%= article.created_at.strftime("%m/%d/%Y") %></div>
