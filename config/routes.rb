@@ -10,7 +10,6 @@ News::Application.routes.draw do
     get :drafts
     get :published
     get :for_review
-    resources :articles
   end
 
   namespace :api, :defaults => {:format => :json} do
