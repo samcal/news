@@ -27,6 +27,8 @@ p.alert {
   color: #d00;
 }
 
+$headerHeight: 80px;
+$headerTitleFontSize: 28px;
 
 header, footer {
   a:hover {
@@ -71,6 +73,10 @@ header, footer {
       }
     }
   }
+}
+
+.allow-for-top-bar {
+  margin-top: 95px !important;
 }
 
 
