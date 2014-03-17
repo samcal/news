@@ -1,3 +1,4 @@
+ls
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -7,15 +8,7 @@ gem 'rails', '4.0.0'
 gem 'sqlite3'
 
 # Use Active Model Serializers for API
-<<<<<<< HEAD
-<<<<<<< HEAD
 gem 'active_model_serializers'
-=======
-gem 'active_model_serializers', '~> 2.0.3'
->>>>>>> Add active_model_serializer gem
-=======
-gem 'active_model_serializers'
->>>>>>> Remove version from active_model_serializer gem
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
