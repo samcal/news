@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   before_filter :get_categories, :get_headlines
 
   private
-  
+
   def get_categories
-  	@categories = Category.all
+    @categories = Category.all
   end
 
   def get_headlines
