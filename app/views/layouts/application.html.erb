@@ -15,6 +15,12 @@
       <%= link_to root_path do %>
         <h1 class='pull-left'>M-A Bear News</h1>
       <% end %>
+      <ul>
+        <li <% unless @current_category %>class='active'<% end %>> <%= link_to "Most Recent", root_path %> </li>
+        <% @categories.each do |c| %>
+          <li <% if c == @current_category %>class='active'<% end %>><%= link_to c.name, category_path(c) %></li>
+        <% end %>
+      </ul>
     </div>
   </header>
   <!-- <header>
@@ -50,7 +56,7 @@
 
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-        span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
       <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
@@ -64,6 +70,7 @@
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
+
     <div class='row'>
       <div class='col-md-2'>
         <ul class='nav nav-pills nav-stacked'>
