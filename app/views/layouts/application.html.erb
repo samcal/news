@@ -63,7 +63,7 @@
       </a>
     </div>
   <% end %>
-  <div class='container'>
+  <div class='container' <% current_page?(root_path) ? '' :  'allow-for-top-bar'%>>
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
