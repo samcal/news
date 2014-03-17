@@ -39,7 +39,7 @@ header, footer {
   }
   .top-bar {
     h1 { // styling specific to the dashboard
-      font-size: $headerTitleFontSize;  
+      font-size: $headerTitleFontSize;
       margin: ($headerHeight - $headerTitleFontSize)*.5 auto;
     }
     position: fixed;
@@ -76,7 +76,7 @@ header, footer {
 }
 
 .allow-for-top-bar {
-  margin-top: 95px !important;
+  margin-top: ($headerHeight + 15) !important;
 }
 
 
