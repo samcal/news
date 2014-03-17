@@ -16,74 +16,74 @@
 @import "variables";
 
 a.no-underline:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 p.notice {
-	color: #0d0;
+  color: #0d0;
 }
 
 p.alert {
-	color: #d00;
+  color: #d00;
 }
 
 
 .new-draft {
-	width: 100%;
-	text-align: center;
-	padding: 2px;
-	border: 1px solid #aaa;
-	color: #aaa;
-	margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+  border: 1px solid #aaa;
+  color: #aaa;
+  margin-bottom: 30px;
 }
 
 .nav {
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	font-size: 18px;
-	li > a {
-		color: $splash !important;
-	}
-	li.active > a {
-		color: white !important;
-		background-color: $splash !important;
-	}
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  li > a {
+    color: $splash !important;
+  }
+  li.active > a {
+    color: white !important;
+    background-color: $splash !important;
+  }
 }
 
 button.btn-ma, button.btn-ma:hover {
-	border: 1px solid $splash;
-	color: $splash;
-	background-color: white;
+  border: 1px solid $splash;
+  color: $splash;
+  background-color: white;
 }
 
 .container {
-	margin-bottom: 50px; // To leave space for the fixed footer
+  margin-bottom: 50px; // To leave space for the fixed footer
 }
 
 footer {
-	border-top: 1px solid #bbb;
-	width: 100%;
-	ul {
-		list-style-type: none;
-		text-align: center;
-		li {
-			display: inline;
-			color: #aaa;
-			margin: auto 5px auto;
-			a {
-				color: #aaa;
-				text-decoration: underline;
-			}
-			a:hover {
-				color: #aaa;
-				text-decoration: none;
-			}
-		}
-	}
+  border-top: 1px solid #bbb;
+  width: 100%;
+  ul {
+    list-style-type: none;
+    text-align: center;
+    li {
+      display: inline;
+      color: #aaa;
+      margin: auto 5px auto;
+      a {
+        color: #aaa;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: #aaa;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .card{
-	border: 1px solid $lightgray;
+  border: 1px solid $lightgray;
   box-shadow: 0 4px 8px rgba(212,212,212,.6);
-	border-radius: 2px;
+  border-radius: 2px;
 }
