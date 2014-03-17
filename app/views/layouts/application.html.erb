@@ -15,83 +15,82 @@
       <%= link_to root_path do %>
         <h1 class='pull-left'>M-A Bear News</h1>
       <% end %>
-      
     </div>
   </header>
-	<!-- <header>
-		<div class='logo hidden-xs'>
-			<%= link_to root_path do %><h1>M-A Bear News</h1><% end %>
-		</div>
-		<div class='visible-xs'>
-			<%= link_to root_path do %><h1>M-A Bear News</h1><% end %>
-		</div>
-	</header> -->
-	<% if current_page?(root_path) %>
-		<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
-		  <!-- Indicators -->
-		  <ol class="carousel-indicators">
-		  	<% @headlines.each_with_index do |h, index| %>
-		    	<li data-target="#carousel-example-generic" data-slide-to="<%= index %>" <% if index == 0 %>class="active"<% end %>></li>
-		    <% end %>
-		  </ol>
+  <!-- <header>
+    <div class='logo hidden-xs'>
+      <%= link_to root_path do %><h1>M-A Bear News</h1><% end %>
+    </div>
+    <div class='visible-xs'>
+      <%= link_to root_path do %><h1>M-A Bear News</h1><% end %>
+    </div>
+  </header> -->
+  <% if current_page?(root_path) %>
+    <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% @headlines.each_with_index do |h, index| %>
+          <li data-target="#carousel-example-generic" data-slide-to="<%= index %>" <% if index == 0 %>class="active"<% end %>></li>
+        <% end %>
+      </ol>
 
-		  <!-- Wrapper for slides -->
-		  <div class="carousel-inner">
-	    	<% @headlines.each_with_index do |h, index| %>
-    			<div class="item<% if index == 0 %> active<% end %>">
-		      	<%= link_to article_path(h), class: "no-underline" do %>
-		      		<%= image_tag h.image.url %>
-		      	<% end %>
-		      	<div class="carousel-caption">
-		      	 	<h3><%= h.title %></h3>
-		      	</div>
-	      	</div>
-	      <% end %>
-		  </div>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @headlines.each_with_index do |h, index| %>
+          <div class="item<% if index == 0 %> active<% end %>">
+            <%= link_to article_path(h), class: "no-underline" do %>
+              <%= image_tag h.image.url %>
+            <% end %>
+            <div class="carousel-caption">
+               <h3><%= h.title %></h3>
+            </div>
+          </div>
+        <% end %>
+      </div>
 
-		  <!-- Controls -->
+      <!-- Controls -->
       <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left"></span>
-		  </a>
-		  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right"></span>
-		  </a>
-		</div>
-	<% end %>
-	<div class='container'>
-		<% if notice %>
-			<p class="notice"><%= notice %></p>
-		<% end %>
-		<% if alert %>
-			<p class="alert"><%= alert %></p>
-		<% end %>
-		<div class='row'>
-			<div class='col-md-2'>
-				<ul class='nav nav-pills nav-stacked'>
-					<li <% unless @current_category %>class='active'<% end %>><%= link_to "Most Recent", root_path %></li>
-					<% @categories.each do |c| %>
-						<li <% if c == @current_category %>class='active'<% end %>><%= link_to c.name, category_path(c) %></li>
-					<% end %>
-				</ul>
-			</div>
-			<div class='col-md-10 col-lg-8'>
-				<%= yield %>
-			</div>
-		</div>
-	</div>
-	<footer>
-		<ul>
-			<li>&copy; Menlo-Atherton High School. All Rights Reserved.</li>
-			<% if user_signed_in? %>
-				<li>Signed In as <strong><%= current_user.email %></strong></li>
-				<% if current_user.writer? %>
-	        <li><%= link_to "Dashboard", contributor_drafts_path %></li>
-	      <% end %>
-				<li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
-			<% else %>
-				<li><%= link_to "Log In", new_user_session_path %></li>
-			<% end %>
-		</ul>
-	</footer>
+        span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  <% end %>
+  <div class='container'>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <div class='row'>
+      <div class='col-md-2'>
+        <ul class='nav nav-pills nav-stacked'>
+          <li <% unless @current_category %>class='active'<% end %>><%= link_to "Most Recent", root_path %></li>
+          <% @categories.each do |c| %>
+            <li <% if c == @current_category %>class='active'<% end %>><%= link_to c.name, category_path(c) %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class='col-md-10 col-lg-8'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <ul>
+      <li>2014 &copy; Menlo-Atherton High School. All Rights Reserved.</li>
+      <% if user_signed_in? %>
+        <li>Signed In as <strong><%= current_user.email %></strong></li>
+        <% if current_user.writer? %>
+          <li><%= link_to "Dashboard", contributor_drafts_path %></li>
+        <% end %>
+        <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Log In", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </footer>
 </body>
 </html>
