@@ -63,6 +63,7 @@ class ArticlesController < ApplicationController
     @article.save
     redirect_to @article
   end
+
   private
     def article_params
       params.require(:article).permit(:title, :author_name, :category_id, :image, :caption, :text)
