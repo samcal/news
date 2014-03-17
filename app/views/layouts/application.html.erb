@@ -16,9 +16,9 @@
         <h1 class='pull-left'>M-A Bear News</h1>
       <% end %>
       <ul>
-        <li <% unless @current_category %>class='active'<% end %>> <%= link_to "Most Recent", root_path %> </li>
+        <li> <%= link_to "Most Recent", root_path, :class => @current_category ? '' : 'active'%> </li>
         <% @categories.each do |c| %>
-          <li <% if c == @current_category %>class='active'<% end %>><%= link_to c.name, category_path(c) %></li>
+          <li><%= link_to c.name, category_path(c), :class => (c == @current_category) ? 'active' : '' %></li>
         <% end %>
       </ul>
     </div>
