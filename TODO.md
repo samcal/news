@@ -15,7 +15,7 @@
 ### Possible Chicken-Egg Implementations
 - User pid 1 -> always editor
 - On creation, if the user is the first user (only user) -> create them as an editor
-
+- Probably will be only user, as only user does not always have pk=1
 
 ## How does Further Reading work?
 - Automatic *unless* manual
