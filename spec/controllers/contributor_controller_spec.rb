@@ -13,7 +13,7 @@ describe ContributorController do
         other_user = create(:user)
 
         article1 = create(:draft, user: user)
-        article2 = create(:draft, user: other_user)
+        create(:draft, user: other_user)
 
         get :drafts
         expect(assigns(:drafts)).to match_array([article1])
@@ -22,7 +22,7 @@ describe ContributorController do
       it 'only assigns unpublished articles to @drafts' do
         article1 = create(:draft, user: user)
         article2 = create(:unpublished_article, user:user)
-        article3 = create(:article, user:user)
+        create(:article, user:user)
 
         get :drafts
         expect(assigns(:drafts)).to match_array([article1, article2])
@@ -49,7 +49,7 @@ describe ContributorController do
         other_user = create(:user)
 
         article1 = create(:article, user: user)
-        article2 = create(:article, user: other_user)
+        create(:article, user: other_user)
 
         get :published
         expect(assigns(:published)).to match_array([article1])
@@ -57,7 +57,7 @@ describe ContributorController do
 
       it 'only loads published articles' do
         article1 = create(:article, user: user)
-        article2 = create(:unpublished_article, user: user)
+        create(:unpublished_article, user: user)
 
         get :published
         expect(assigns(:published)).to match_array([article1])
@@ -88,9 +88,9 @@ describe ContributorController do
 
       it 'loads the right articles into @for_review' do
         sign_in create(:editor)
-        article1 = create(:draft)
+        create(:draft)
         article2 = create(:unpublished_article)
-        article3 = create(:article)
+        create(:article)
         get :for_review
         expect(assigns(:for_review)).to match_array([article2])
       end
@@ -102,5 +102,36 @@ describe ContributorController do
         expect(response).to redirect_to(root_path)
       end
     end
+  end
+  describe 'GET #staff' do
+      context 'if authenticated' do
+          it 'allows the editor to access' do
+              sign_in create(:editor)
+              get :staff
+              expect(response.status).to eq(200)
+          end
+          
+          it 'redirects anyone else' do
+              sign_in create(:writer)
+              get :staff
+              expect(response).to redirect_to(root_path)
+          end
+          
+          it 'loads all of the users into @users' do
+              editor = create(:editor)
+              sign_in editor
+              create(:user)
+              create(:writer)
+              get :staff
+              expect(assigns(:staff)).to match_array(User.all)
+          end
+      end
+      
+      context 'if not authenticated' do
+          it 'redirects to the root path' do
+              get :staff
+              expect(response).to redirect_to(root_path)
+          end
+      end
   end
 end
