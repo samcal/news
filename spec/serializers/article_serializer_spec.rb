@@ -1,6 +1,7 @@
 describe ArticleSerializer do
+  let(:result_hash) { JSON.parse(ArticleSerializer.new(create(:article)).to_json) }
+
   it "creates special JSON for the API" do
-    serializer = ArticleSerializer.new Article.new(id: 123, title: 'some title', body: 'some text')
-    expect(serializer.to_json).to eql('{"post":{"id":123,"title":"some title","body":"some text"}}')
+    expect(result_hash).to have_key('article')
   end
 end
