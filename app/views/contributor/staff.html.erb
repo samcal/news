@@ -1,0 +1,17 @@
+<h1>Staff</h1>
+<table class='table'>
+  <thead>
+    <tr>
+      <td>Email</td>
+      <td>Role</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% for user in @staff %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
