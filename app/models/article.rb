@@ -38,9 +38,9 @@ class Article < ActiveRecord::Base
   def keywords
     all_text = normalize("#{self.title} #{self.title} #{self.text}")
     keywords = all_text.group_by { |word| word }
-                       .map      { |word, occurrences| [occurrences.first, occurrences.size] }
-                       .sort_by  { |word, size| -size }
+                       .sort_by  { |word, occurences| -occurences.size }
                        .first(3)
+                       .map      { |word, occurrences| [occurrences.first, occurrences.size] }
     return keywords
   end
 
