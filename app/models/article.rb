@@ -36,12 +36,18 @@ class Article < ActiveRecord::Base
   end
 
   def keywords
-    allText = self.title + ' ' +  self.title + ' ' + self.text
-    allText = allText.gsub(/\d/, '').downcase.split(/\W+/) - ['', 'a', 'an', 'and', 'the']
-    keywords = allText.group_by {|x|x} .map {|x,y|[x,y.size]} .sort_by {|_,size| -size} .first(3)
+    all_text = normalize("#{self.title} #{self.title} #{self.text}")
+    keywords = all_text.group_by { |word| word }
+                       .map      { |word, occurrences| [occurrences.first, occurrences.size] }
+                       .sort_by  { |word, size| -size }
+                       .first(3)
     return keywords
   end
 
+  private
 
+    def normalize(text)
+      text.gsub(/\d/, '').downcase.split(/\W+/) - ['', 'a', 'an', 'and', 'the']
+    end
 
 end
