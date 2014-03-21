@@ -1,6 +1,6 @@
 #v1
 * further reading options
-✓ navigation work with mobile also
+* navigation work with mobile also ✓
 * submission (editor vs. writer) management
 
 
