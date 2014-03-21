@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :text
   validates_presence_of :author_name
-  
+
   scope :published, -> { where(is_published: true) }
   scope :to_be_edited, -> { where(is_draft: false, is_published: false) }
   scope :drafts, -> { where(is_draft: true) }
@@ -34,4 +34,14 @@ class Article < ActiveRecord::Base
     a_ids.delete(id)
     Article.where(:id => a_ids.sort_by { rand }.slice(0, 3))
   end
+
+  def keywords
+    allText = self.title + ' ' +  self.title + ' ' + self.text
+    allText = allText.gsub(/\d/, '').downcase.split(/\W+/) - ['', 'a', 'an', 'and', 'the']
+    keywords = allText.group_by {|x|x} .map {|x,y|[x,y.size]} .sort_by {|_,size| -size} .first(3)
+    return keywords
+  end
+
+
+
 end
