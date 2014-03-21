@@ -79,8 +79,6 @@ header, footer {
   margin-top: ($headerHeight + 15) !important;
 }
 
-
-
 .new-draft {
   width: 100%;
   text-align: center;
@@ -110,18 +108,22 @@ button.btn-ma, button.btn-ma:hover {
 }
 
 .container {
-  margin-bottom: 50px; // To leave space for the fixed footer
+  margin-bottom: 30px; // To leave space for the fixed footer
 }
 
 footer {
   border-top: 1px solid #bbb;
   width: 100%;
-  position: fixed;
-  bottom:0;
+  height: 30px;
+  background: white;
+  box-shadow: 0 -4px 8px rgba(212,212,212,.6);
   ul {
+    vertical-align:center;
     list-style-type: none;
     text-align: center;
     li {
+      line-height: 30px;
+      vertical-align:center;
       display: inline;
       color: #aaa;
       margin: auto 5px auto;
@@ -137,7 +139,8 @@ footer {
   }
 }
 
-.card{
+.card
+{
   border: 1px solid $lightgray;
   box-shadow: 0 4px 8px rgba(212,212,212,.6);
   border-radius: 2px;
