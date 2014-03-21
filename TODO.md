@@ -1,6 +1,6 @@
 #v1
 * further reading options
-* pick one type of navigation and boot the other
+✓ navigation work with mobile also
 * submission (editor vs. writer) management
 
 
@@ -18,12 +18,10 @@
 - Probably will be only user, as only user does not always have pk=1
 
 ## How does Further Reading work?
-- Automatic *unless* manual
-- similar_articles() method on article class (already defined)
-- TDA (tell don't ask)
+- expose keywords function
+- add search
+- search for keywords on Further reading
 
+#v1.1
+* tags using comments in markdown
 
-## Navigation
-- Go with side navigation for now
-- Comment out top navigation
-- Work for top navigation mobile integration and carousel functionality for v1.1
