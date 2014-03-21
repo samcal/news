@@ -116,6 +116,8 @@ button.btn-ma, button.btn-ma:hover {
 footer {
   border-top: 1px solid #bbb;
   width: 100%;
+  position: fixed;
+  bottom:0;
   ul {
     list-style-type: none;
     text-align: center;
