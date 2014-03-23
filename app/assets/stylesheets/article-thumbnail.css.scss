@@ -1,48 +1,44 @@
+@import "variables";
+
 .article-thumbnail {
-  border: 1px solid #BBB;
-  border-radius: 0px;
+  border: 1px solid $lightgray;
   width: 100%;
   padding: 10px;
   margin-bottom: 18px;
+
   img {
     width: 100%;
   }
+
   h1 {
     font-family: 'Lato', sans-serif;
-    font-weight: 100;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 13px;
     text-align: center;
     margin-top:7px;
     margin-bottom:7px;
     color: black;
   }
+
   hr {
-    margin: 0;
+    margin: 0 auto;
+    width: 90%;
+    border-color: $lightgray;
   }
+
   .sub {
     font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    color: rgba(203,203,203,1);
-    border-top: 1px solid #aaa;
-    height: 17px;
-    position: relative;
-    .date {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .author {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+    font-weight: 400;
+    font-size: 10px;
+    color: $darkgray;
+    text-align:center;
+    margin-top: 7px;
+    margin-bottom: -3px;
   }
 }
 
 @media (min-width: 992px) {
   .article-thumbnail {
-    height: 250px;
     h1 {
       line-height: 20px;
       height: 40px;

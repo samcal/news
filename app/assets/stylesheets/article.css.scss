@@ -10,24 +10,24 @@ h1 {
   margin: 2px auto 8px auto;
 }
 article {
-	font-family: Georgia, serif;
-	padding: 10px;
+  font-family: Georgia, serif;
+  padding: 10px;
   position: relative;
-	hr {
-		margin-top: 2px;
+  hr {
+    margin-top: 2px;
     border-color: $lightgray;
     width:98%;
-	}
-	.divider {
-		width: 90%;
-		background-color: $lightgray;
-		margin: 20px auto;
-	}
-	img {
-		display: block;
-		width: 60%;
-		margin: 0 auto;
-	}
+  }
+  .divider {
+    width: 90%;
+    background-color: $lightgray;
+    margin: 20px auto;
+  }
+  img {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+  }
   img.main {
     width: 80%;
   }
@@ -52,18 +52,18 @@ article {
     margin: 0 auto;
     line-height:24px;
   }
-	.sub {
-		font-family: 'Lato', sans-serif;
-		font-weight: 300;
-		font-size: 15px;
-		color: rgba(146,146,146,1);
-		text-align: right;
-	}
-	blockquote {
-		margin: 30px 0;
-		border-left: 10px solid maroon;
-		padding: 0 0 0 30px;
-	}
+  .sub {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: rgba(146,146,146,1);
+    text-align: right;
+  }
+  blockquote {
+    margin: 30px 0;
+    border-left: 10px solid maroon;
+    padding: 0 0 0 30px;
+  }
   .edit {
     font-family: 'Lato', sans-serif;
     background-color: maroon;

@@ -7,13 +7,13 @@
         <img src='http://placehold.it/208x160'>
       <% end %>
       <h1><%= article.short_title %></h1>
+      <hr />
       <div class='sub'>
         <% if article.is_draft %>
           Draft
         <% else %>
           <% if article.is_published %>
-            <div class='date'><%= article.created_at.strftime("%m/%d/%Y") %></div>
-            <div class='author'><%= article.author_name %></div>
+            <div> <%= article.author_name + " on " + article.created_at.strftime("%_m/%-d/%Y") %> </div>
           <% else %>
             <% if article.user == current_user %>
               In Review
