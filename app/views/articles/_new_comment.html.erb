@@ -1,0 +1,11 @@
+<div class="new-comment">
+  <%= form_for :comment, url: comments_path, :html => {class: "form-inline"} do |f| %>
+    <%= f.hidden_field :article_id, :value => @article.id %>
+    <div class='top-section'>
+      <%= f.text_field :name, {class: "form-control narrow", placeholder: "Name"} %>
+      <%= f.email_field :email, {class: "form-control narrow", placeholder: "Email"} %>
+    </div>
+    <%= f.text_area :body, {class: "form-control", rows: "5", placeholder: "Add a comment"} %>
+    <button class='btn btn-ma'>Comment</button>
+  <% end %>
+</div>
