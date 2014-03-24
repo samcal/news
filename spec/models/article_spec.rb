@@ -27,7 +27,7 @@ describe Article do
 
     it "removes articles of speech" do
       article = create(:article, :title => "-", :text => "a a and and an an the the one two three")
-      expect(article.keywords).to eq([["one", 1], ["two", 1], ["three",1]])
+      expect(article.keywords).to eq([["one", 1], ["two", 1], ["three", 1]])
     end
 
     it "orders sequential when tied" do
@@ -37,7 +37,7 @@ describe Article do
 
     it "disregards case" do
       article1 = create(:article, :title => "-", :text => "ONE TWO TWO THREE THREE THREE")
-      article2 = create(:article, :title => "-", :text => "one two two  three Three THREE")
+      article2 = create(:article, :title => "-", :text => "one two two three Three THREE")
       expect(article1.keywords).to eq(article2.keywords)
     end
 
@@ -56,17 +56,4 @@ describe Article do
       expect(article.keywords).to eq([["title", 2], ["body", 2], ["text", 1]])
     end
   end
-
-  # context "Article#match_strength" do
-  #   it "matches title" do
-  #     article1 = create(:article, :title => "Environment")
-  #     article2 = create(:article, :title => "Fossil Fuels")
-  #     article3 = create(:article, :title => "Environment")
-  #
-  #     strongMatch = article1.match_strength(article2)
-  #     weakMatch = artcile1.match_strength(article3)
-  #     expect(strongMatch > weakMatch).to be true
-  #   end
-  # end
-  #
 end
