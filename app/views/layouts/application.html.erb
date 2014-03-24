@@ -60,11 +60,6 @@
       </a>
     </div>
   <% end %>
-  <script type="text/javascript">
-    $('.carousel').carousel({
-      pause: "false"
-    });
-  </script>
   <div class="container allow-for-top-bar">
     <% if notice %>
       <p class="notice"><%= notice %></p>
@@ -74,7 +69,7 @@
     <% end %>
 
     <div class='row'>
-      <div class='col-md-2'>
+      <div>
         <ul class='nav nav-pills nav-stacked visible-xs'>
           <li <% unless @current_category %>class='active'<% end %>><%= link_to "Most Recent", root_path %></li>
           <% @categories.each do |c| %>
@@ -82,7 +77,7 @@
           <% end %>
         </ul>
       </div>
-      <div class='col-md-10 col-lg-8'>
+      <div class='col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2'>
         <%= yield %>
       </div>
     </div>
