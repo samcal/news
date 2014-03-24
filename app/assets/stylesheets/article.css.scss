@@ -1,13 +1,17 @@
-$lightgray: rgba(203,203,203,1);
-$darkgray: #3d464d;
+@import "variables";
 
 h1 {
-  font-family: 'Lato', sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   color: $darkgray;
-  margin: 2px auto 8px auto;
+  margin: 2px auto 10px auto;
+}
+h2 {
+  font-weight: 300;
+  font-size:20px;
+  color: $darkgray;
+  margin-left: 10px;
 }
 article {
   font-family: Georgia, serif;
