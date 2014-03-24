@@ -1,14 +1,14 @@
 <%= render "full_article", object: @article %>
 
 <div id='article-comments'>
-  <h1>Comments</h1>
+  <h2 >Comments</h2>
   <hr />
   <%= render @article.comments %>
   <%= render "new_comment" %>
 </div>
 
 <div id='article-similar'>
-  <h1>Further Reading</h1>
+  <h2>Further Reading</h2>
   <hr />
   <div class='row'>
     <%= render @similar_articles %>
