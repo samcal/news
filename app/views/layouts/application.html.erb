@@ -60,14 +60,13 @@
       </a>
     </div>
   <% end %>
+  <% if notice %>
+    <div class="notice alert alert-success animated slideOutUp"><%= notice %></div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-warning animated slideOutUp"><%= alert %></div>
+  <% end %>
   <div class="container allow-for-top-bar">
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-
     <div class='row'>
       <div>
         <ul class='nav nav-pills nav-stacked visible-xs'>

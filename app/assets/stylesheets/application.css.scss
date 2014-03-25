@@ -23,16 +23,16 @@ a.no-underline:hover {
   text-decoration: none;
 }
 
-p.notice {
-  color: #0d0;
-}
-
-p.alert {
-  color: #d00;
-}
 
 $headerHeight: 80px;
 $headerTitleFontSize: 28px;
+.notice, .alert {
+  position: absolute;
+  top: $headerHeight;
+  width: 100%;
+  border-radius: 0;
+  text-align:center;
+}
 
 header, footer {
   a:hover {
