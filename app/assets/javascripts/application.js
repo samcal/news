@@ -15,7 +15,3 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-
-$('.carousel').carousel({
-  pause: "false"
-})i

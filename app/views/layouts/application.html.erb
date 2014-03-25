@@ -29,7 +29,7 @@
     </div>
   </header>
   <% if current_page?(root_path) %>
-    <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
+    <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" data-pause="false">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <% @headlines.each_with_index do |h, index| %>
