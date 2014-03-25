@@ -19,5 +19,5 @@
     <%= render_markdown object.text %>
   </div>
   <hr class="bottom" />
-  <div class='sub'>by <%= object.author_name %> on <%= object.created_at.strftime("%m/%d/%Y") %></div>
+  <div class='sub'>by <%= object.author_name %> on <%= object.created_at.strftime("%_m/%-d/%Y") %></div>
 </article>
