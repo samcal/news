@@ -13,6 +13,19 @@ h2 {
   color: $darkgray;
   margin-left: 10px;
 }
+.edit {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-color: none;
+  line-height: 20px;
+  width: 100%;
+  text-align: center;
+  border-radius: 0 3px 0 0;
+  border: $splash solid 1px;
+  padding: 3px;
+  margin-bottom:10px;
+  color: $splash;
+}
 article {
   font-family: Georgia, serif;
   padding: 10px;
@@ -60,26 +73,12 @@ article {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 15px;
-    color: rgba(146,146,146,1);
+    color: $darkgray;
     text-align: right;
   }
   blockquote {
     margin: 30px 0;
-    border-left: 10px solid maroon;
+    border-left: 7px solid maroon;
     padding: 0 0 0 30px;
-  }
-  .edit {
-    font-family: 'Lato', sans-serif;
-    background-color: maroon;
-    line-height: 20px;
-    width: 50px;
-    text-align: center;
-    position: absolute;
-    right: 0;
-    top: -21px;
-    border-radius: 3px 3px 0 0;
-    a {
-      color: white;
-    }
   }
 }

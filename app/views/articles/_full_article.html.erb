@@ -1,10 +1,12 @@
-<article class='card'>
-  <h1><%= object.title %></h1>
-  <% if can? :update, object %>
+<% if can? :update, @article  %>
+  <%= link_to edit_article_path(@article), class: "no-underline"  do %>
     <div class='edit'>
-      <%= link_to edit_article_path(object) do %>Edit<% end %>
+      Edit
     </div>
   <% end %>
+<% end %>
+<article class='card'>
+  <h1><%= object.title %></h1>
   <hr />
   <% if object.image.exists? %>
     <%= image_tag object.image.url(:medium), :class => "main" %>
