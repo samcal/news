@@ -65,6 +65,8 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'simplecov', :require => false
+  gem 'rspec', '~> 3.0.0.beta2'
+  gem 'guard-rspec', "~> 4.2.8", require: false
 end
 
 group :production do
@@ -76,7 +78,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -84,5 +86,3 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rspec', '~> 3.0.0.beta2'
-gem 'guard-rspec', "~> 4.2.8", require: false
