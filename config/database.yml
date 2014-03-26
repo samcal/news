@@ -23,5 +23,5 @@ production:
   encoding: unicode
   database: news_production
   pool: 5
-  password: ''
+  password: xwxdxwzN7oynv2QoYh6Zs9AF
   timeout: 5000
