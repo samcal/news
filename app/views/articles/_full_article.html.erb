@@ -5,6 +5,7 @@
     </div>
   <% end %>
 <% end %>
+
 <article class='card'>
   <h1><%= object.title %></h1>
   <hr />
@@ -21,3 +22,11 @@
   <hr class="bottom" />
   <div class='sub'>by <%= object.author_name %> on <%= object.created_at.strftime("%_m/%-d/%Y") %></div>
 </article>
+
+<% if can?(:publish, @article) and not @article.is_published and not @article.is_draft %>
+  <%= link_to publish_path(@article), class: "no-underline", method: 'PUT' do %>
+    <div class='edit'>
+      Publish
+    </div>
+  <% end %>
+<% end %>
