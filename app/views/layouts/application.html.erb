@@ -67,15 +67,15 @@
     <div class="alert alert-warning animated slideOutUp"><%= alert %></div>
   <% end %>
   <div class="container allow-for-top-bar">
+    <div>
+      <ul class='nav nav-pills nav-stacked visible-xs'>
+        <li <% unless @current_category %>class='active'<% end %>><%= link_to "Most Recent", root_path %></li>
+        <% @categories.each do |c| %>
+          <li <% if c == @current_category %>class='active'<% end %>><%= link_to c.name, category_path(c) %></li>
+        <% end %>
+      </ul>
+    </div>
     <div class='row'>
-      <div>
-        <ul class='nav nav-pills nav-stacked visible-xs'>
-          <li <% unless @current_category %>class='active'<% end %>><%= link_to "Most Recent", root_path %></li>
-          <% @categories.each do |c| %>
-            <li <% if c == @current_category %>class='active'<% end %>><%= link_to c.name, category_path(c) %></li>
-          <% end %>
-        </ul>
-      </div>
       <div class='col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2'>
         <%= yield %>
       </div>
