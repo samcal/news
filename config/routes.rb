@@ -4,6 +4,7 @@ News::Application.routes.draw do
 
   resources :comments
   resources :articles
+  put '/publish/:id', to: 'articles#publish', as: 'publish'
   resources :categories
 
   namespace :contributor do

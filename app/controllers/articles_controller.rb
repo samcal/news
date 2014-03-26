@@ -52,6 +52,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def publish
+    @article = Article.friendly.find(params[:id])
+    if can? :update, @article
+      @article.is_published = true
+      @article.save!
+      redirect_to @article
+    else
+      redirect_to root_path
+    end
+  end
+
   def new
     @article = Article.new
     render layout: 'dashboard'

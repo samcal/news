@@ -218,6 +218,24 @@ describe ArticlesController do
         article.reload
         expect(article.is_draft).to be false
       end
+
+      context 'editor publishing' do
+        let (:article) { create(:unpublished_article) }
+
+        it 'allows an editor to publish article' do
+          sign_in create(:editor)
+          put :publish, id: article.slug
+          article.reload
+          expect(article.is_published).to be true
+        end
+
+        it 'does not allow anyone else to publish article' do
+          sign_in article.user
+          put :publish, id: article.slug
+          article.reload
+          expect(article.is_published).to be false
+        end
+      end
     end
   end
 end
