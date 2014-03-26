@@ -151,3 +151,18 @@ footer {
   border-radius: 2px;
   background-color: white;
 }
+
+.scroll-up {
+    border: 1px solid $lightgray;
+    border-radius: 100px;
+    display: none;
+    height: 36px;
+    position: fixed;
+    right: 1%;
+    top: 50%;
+    width: 36px;
+    text-align:center;
+    color: $splash;
+    line-height: 36px;
+    cursor: pointer;
+}
