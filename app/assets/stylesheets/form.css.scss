@@ -1,0 +1,31 @@
+h2.form {
+  text-align:center;
+  font-size: 25px;
+  width: 50%;
+  margin:10px auto;
+}
+
+
+.card.form {
+  padding: 25px;
+  width:50%;
+  margin:auto;
+  .form-group {
+    legend {
+      font-size:35px;
+    }
+  }
+}
+
+.center-container {
+  text-align:center;
+  width:100%;
+}
+
+.auxiliary-buttons {
+  text-align: center;
+  margin-top:10px;
+  .btn {
+    font-size:10px;
+  }
+}
