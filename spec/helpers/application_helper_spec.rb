@@ -16,4 +16,11 @@ describe ApplicationHelper do
       expect(first).to be(second)
     end
   end
+
+  describe "time_ago helper" do
+    it "renders time ago string properly" do
+      output = time_ago(Time.now)
+      expect(output).to eq("less than a minute ago")
+    end
+  end
 end

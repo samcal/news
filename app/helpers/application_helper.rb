@@ -6,4 +6,8 @@ module ApplicationHelper
     end
     @md.render(text).html_safe
   end
+
+  def time_ago(timestamp)
+    time_ago_in_words(timestamp) + " ago"
+  end
 end
