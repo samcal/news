@@ -4,7 +4,7 @@
       <% if article.image.exists? %>
         <%= image_tag article.image.url(:thumb) %>
       <% else %>
-        <img src='http://placehold.it/208x160'>
+        <img src='http://placehold.it/165x125'>
       <% end %>
       <h1><%= article.short_title %></h1>
       <hr />
