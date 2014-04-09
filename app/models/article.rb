@@ -16,7 +16,7 @@ class Article < ActiveRecord::Base
   scope :published, -> { where(is_published: true) }
   scope :to_be_edited, -> { where(is_draft: false, is_published: false) }
   scope :drafts, -> { where(is_draft: true) }
-  scope :owner, -> (owner) { where(user_id: owner.id) }
+  scope :with_owner, -> (owner) { where(user_id: owner.id) }
 
   self.per_page = 12
 

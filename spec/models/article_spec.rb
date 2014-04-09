@@ -18,6 +18,48 @@ describe Article do
     expect(article2.short_title).to_not eq(article2.title)
   end
 
+  describe "Article.published" do
+    it "only returns published articles" do
+      article1 = create(:article)
+      create(:unpublished_article)
+      create(:draft)
+
+      expect(Article.published).to match_array([article1])
+    end
+  end
+
+  describe "Article.to_be_edited" do
+    it "only returns articles that are neither published nor are drafts" do
+      article1 = create(:unpublished_article)
+      create(:article)
+      create(:draft)
+
+      expect(Article.to_be_edited).to match_array([article1])
+    end
+  end
+
+  describe "Article.drafts" do
+    it "only returns drafts" do
+      article1 = create(:draft)
+      create(:article)
+      create(:unpublished_article)
+
+      expect(Article.drafts).to match_array([article1])
+    end
+  end
+
+  describe "Article.with_owner" do
+    it "only returns articles written by the specified user" do
+      user = create(:writer)
+      article1 = create(:article, :user => user)
+      create(:article)
+      create(:unpublished_article)
+      create(:draft)
+
+      expect(Article.with_owner(user)).to match_array([article1])
+    end
+  end
+
   describe "Article#keywords" do
     it "only returns an array of three keywords with correct format" do
       article = create(:article, :title => "-", :text => "one one two two two three three three four four four four")
