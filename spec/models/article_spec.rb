@@ -18,7 +18,7 @@ describe Article do
     expect(article2.short_title).to_not eq(article2.title)
   end
 
-  context "Article#keywords" do
+  describe "Article#keywords" do
     it "only returns an array of three keywords with correct format" do
       article = create(:article, :title => "-", :text => "one one two two two three three three four four four four")
       expect(article.keywords.length).to eq(3)
