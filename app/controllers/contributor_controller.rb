@@ -16,7 +16,7 @@ class ContributorController < ApplicationController
   end
 
   def staff
-    @staff = User.all
+    @staff = User.where(:role => :editor) | User.where(:role => :writer)
   end
 
   private

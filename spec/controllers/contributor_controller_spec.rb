@@ -110,23 +110,23 @@ describe ContributorController do
               get :staff
               expect(response.status).to eq(200)
           end
-          
+
           it 'redirects anyone else' do
               sign_in create(:writer)
               get :staff
               expect(response).to redirect_to(root_path)
           end
-          
+
           it 'loads all of the users into @users' do
               editor = create(:editor)
               sign_in editor
+              writer = create(:writer)
               create(:user)
-              create(:writer)
               get :staff
-              expect(assigns(:staff)).to match_array(User.all)
+              expect(assigns(:staff)).to match_array([editor, writer])
           end
       end
-      
+
       context 'if not authenticated' do
           it 'redirects to the root path' do
               get :staff
