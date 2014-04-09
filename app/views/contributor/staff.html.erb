@@ -10,7 +10,12 @@
     <% for user in @staff %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.role %></td>
+        <td>
+          <select>
+            <option <%= 'selected' if user.role == 'editor' %>>Editor</option>
+            <option <%= 'selected' if user.role == 'writer' %>>Writer</option>
+          </select>
+        </td>
       </tr>
     <% end %>
   </tbody>
