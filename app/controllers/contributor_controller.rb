@@ -4,15 +4,16 @@ class ContributorController < ApplicationController
   before_action :require_editor, :only => [:for_review, :staff]
 
   def drafts
-    @drafts = Article.where(:user => current_user, :is_published => false)
+    user_articles = Article.with_owner(current_user)
+    @drafts = user_articles.drafts | user_articles.to_be_edited
   end
 
   def published
-    @published = Article.where(:user => current_user, :is_published => true)
+    @published = Article.with_owner(current_user).published
   end
 
   def for_review
-    @for_review = Article.where(:is_draft => false, :is_published => false)
+    @for_review = Article.to_be_edited
   end
 
   def staff
