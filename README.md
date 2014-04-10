@@ -11,3 +11,11 @@ Features
 - Comments on articles
 - Article drafting and submission process
 - Complete and capable RSpec test suite
+
+Installation
+------------
+
+1. Install [ruby](https://www.ruby-lang.org) and [bundler](http://bundler.io/)
+2. Clone the repository
+3. `bundle install`
+4. To run the server: `rails server`
