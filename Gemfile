@@ -30,6 +30,7 @@ gem 'friendly_id'
 
 # Paperclip for attaching images
 gem "paperclip", "~> 3.0"
+gem 'aws-sdk'
 
 # Redcarpet for Markdown rendering
 gem 'redcarpet'
