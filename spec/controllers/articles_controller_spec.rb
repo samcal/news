@@ -20,10 +20,8 @@ describe ArticlesController do
     end
 
     it "only loads published articles into @articles" do
-      article1, article2 = create(:article), create(:article)
-      article2.is_published = false
-      article2.save!
-
+      article1 = create(:article)
+      create(:unpublished_article)
       get :index
       expect(assigns(:articles)).to match_array([article1])
     end
