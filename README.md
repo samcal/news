@@ -1,7 +1,7 @@
 News
 ====
 
-A Ruby on Rails web app, originally created for M-A Bear News.
+A Ruby on Rails web app, originally created for M-A Bear News. Hosted (at least for the moment) at [mabearnews.herokuapp.com](http://mabearnews.herokuapp.com/).
 
 Features
 --------
