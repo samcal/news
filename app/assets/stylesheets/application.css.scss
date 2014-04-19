@@ -57,14 +57,13 @@ header, footer {
     z-index: 999;
     padding-left: 30px;
     ul {
-      list-style-type: none;
       position: absolute;
       right: 40px;
       top: 40%;
       font-weight: 800;
       li {
-        display: inline;
         margin: auto 20px;
+        line-height: $headerHeight;
         a {
           color: #aaa;
         }
@@ -76,11 +75,26 @@ header, footer {
         }
       }
     }
+    @media (min-width: 768px) and (max-width: 991px) {
+      height: $headerHeight + 50px;
+      ul {
+        position: static;
+        display: block;
+        text-align: center;
+        li {
+          display: inline-block;
+          line-height: 1em;
+        }
+      }
+    }
   }
 }
 
 .allow-for-top-bar {
   margin-top: ($headerHeight + 15) !important;
+  @media (min-width: 768px) and (max-width: 979px) {
+    margin-top: ($headerHeight + 50 + 15) !important;
+  }
 }
 
 .new-draft {

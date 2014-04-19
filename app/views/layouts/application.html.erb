@@ -11,16 +11,20 @@
 </head>
 <body>
   <header>
-    <div class='top-bar hidden-xs'>
-      <%= link_to root_path do %>
-        <h1 class='pull-left'>M-A Bear News</h1>
-      <% end %>
-      <ul>
-        <li> <%= link_to "Most Recent", root_path, :class => @current_category ? '' : 'active'%> </li>
-        <% @categories.each do |c| %>
-          <li><%= link_to c.name, category_path(c), :class => (c == @current_category) ? 'active' : '' %></li>
+    <div class='top-bar hidden-xs row'>
+      <div class='col-md-4'>
+        <%= link_to root_path do %>
+          <h1 class=''>M-A Bear News</h1>
         <% end %>
-      </ul>
+      </div>
+      <div class='col-md-8'>
+        <ul class='list-inline'>
+          <li> <%= link_to "Most Recent", root_path, :class => @current_category ? '' : 'active'%> </li>
+          <% @categories.each do |c| %>
+            <li><%= link_to c.name, category_path(c), :class => (c == @current_category) ? 'active' : '' %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </header>
   <header>

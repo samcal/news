@@ -4,6 +4,11 @@ html, body{height:100%;}
 .carousel{
   // margin-top: $headerHeight;
   height:100%;
+  @media (min-width: 768px) and (min-height: 768px) {
+    height: 50%;
+    margin-top: 50px;
+    margin-bottom: -100px;
+  }
   .carousel-control {
     font-size:30px;
     margin-top:80px;
