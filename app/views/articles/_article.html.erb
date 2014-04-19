@@ -1,5 +1,5 @@
 <%= link_to article.is_draft ? edit_article_path(article) : article_path(article), class: "no-underline" do %>
-  <div class='col-md-4'>
+  <div class='col-md-4 col-sm-6'>
     <div class='article-thumbnail card'>
       <% if article.image.exists? %>
         <%= image_tag article.image.url(:thumb) %>
