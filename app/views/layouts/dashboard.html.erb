@@ -11,19 +11,23 @@
 </head>
 <body class="dashboard">
   <header>
-    <div class='top-bar'>
-      <%= link_to root_path do %>
-        <h1 class='pull-left'>M-A Bear News</h1>
-      <% end %>
-      <ul>
-        <% if current_user.editor? %>
-          <li><%= link_to 'Staff', contributor_staff_path, :class => current_page?(contributor_staff_path) ? 'active' : '' %></li>
-          <li><%= link_to 'For Review', contributor_for_review_path, :class => current_page?(contributor_for_review_path) ? 'active' : '' %></li>
+    <div class='top-bar row'>
+      <div class='col-md-4'>
+        <%= link_to root_path do %>
+          <h1 class='pull-left'>M-A Bear News</h1>
         <% end %>
-        <li><%= link_to 'Drafts', contributor_drafts_path, :class => current_page?(contributor_drafts_path) ? 'active' : '' %></li>
-        <li><%= link_to 'Published', contributor_published_path, :class => current_page?(contributor_published_path) ? 'active' : '' %></li>
-        <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
-      </ul>
+      </div>
+      <div class='col-md-8'>
+        <ul class='list-inline'>
+          <% if current_user.editor? %>
+            <li><%= link_to 'Staff', contributor_staff_path, :class => current_page?(contributor_staff_path) ? 'active' : '' %></li>
+            <li><%= link_to 'For Review', contributor_for_review_path, :class => current_page?(contributor_for_review_path) ? 'active' : '' %></li>
+          <% end %>
+          <li><%= link_to 'Drafts', contributor_drafts_path, :class => current_page?(contributor_drafts_path) ? 'active' : '' %></li>
+          <li><%= link_to 'Published', contributor_published_path, :class => current_page?(contributor_published_path) ? 'active' : '' %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+        </ul>
+      </div>
     </div>
   </header>
   <div class='container allow-for-top-bar'>
