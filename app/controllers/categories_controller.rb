@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @current_category = @category
-    @articles = @category.articles.paginate(:page => params[:page]).order('created_at DESC')
+    @articles = @category.articles.published.order('created_at DESC').paginate(:page => params[:page])
   end
 
   private
