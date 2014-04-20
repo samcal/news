@@ -1,4 +1,4 @@
 <div class="row">
   <%= render @category.articles.published %>
-  <%= will_paginate @articles %>
 </div>
+<%= will_paginate @articles, :renderer => ArticlesPaginationHelper::LinkRenderer %>

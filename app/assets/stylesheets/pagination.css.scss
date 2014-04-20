@@ -1,0 +1,45 @@
+@import 'variables';
+
+$paginationDiameter: 40px;
+
+.pagination-container {
+  width: 100%;
+  text-align: center;
+}
+
+.pagination {
+  color: $splash;
+  display: inline-block;
+  margin: 0 auto;
+  span.disabled {
+    color: gray;
+  }
+  a {
+    color: $splash;
+  }
+  a.page_number, em {
+    border: 1px solid $splash;
+    border-radius: 100px;
+    display: inline-block;
+    text-align: center;
+    line-height: $paginationDiameter - 2;
+    height: $paginationDiameter;
+    width: $paginationDiameter;
+  }
+  a.page_number:hover {
+    background-color: $splash;
+    color: white;
+    text-decoration: none;
+  }
+  em {
+    background-color: $splash;
+    color: white;
+    font-style: normal;
+  }
+  a.previous_page {
+    border: none;
+  }
+  a.next_page {
+    border: none;
+  }
+}
