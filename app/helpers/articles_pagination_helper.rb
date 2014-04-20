@@ -20,4 +20,10 @@ module ArticlesPaginationHelper
       previous_or_next_page(num, tag(:span, '', :class => 'glyphicon glyphicon-chevron-right'), 'next_page')
     end
   end
+
+  class MobileRenderer < LinkRenderer
+    def to_html
+      html_container(previous_page + "Page #{@collection.current_page} of #{total_pages}" + next_page)
+    end
+  end
 end

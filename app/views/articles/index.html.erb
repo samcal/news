@@ -2,5 +2,10 @@
   <%= render @articles %>
 </div>
 <div class='pagination-container'>
-  <%= will_paginate @articles, :inner_window => 1, :renderer => ArticlesPaginationHelper::LinkRenderer %>
+  <div class='hidden-xs'>
+    <%= will_paginate @articles, :inner_window => 1, :renderer => ArticlesPaginationHelper::LinkRenderer %>
+  </div>
+  <div class='visible-xs'>
+    <%= will_paginate @articles, :renderer => ArticlesPaginationHelper::MobileRenderer %>
+  </div>
 </div>
