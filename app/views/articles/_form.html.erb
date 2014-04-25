@@ -28,7 +28,9 @@
   </p>
 
   <p>
-    <%= f.submit :class => 'btn btn-default', :value => 'Save Draft' %>
+    <% if @article.id %>
+      <%= f.submit :class => 'btn btn-default', :value => 'Save Draft' %>
+    <% end %>
     <%= f.submit :class => 'btn btn-default', :value => 'Preview' %>
     <%= f.submit :class => 'btn btn-default', :value => 'Submit' %>
   </p>
